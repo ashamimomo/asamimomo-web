@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Search, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { MENU_ITEMS, MENU_CATEGORIES } from "@/lib/data";
+import { MENU_ITEMS, MENU_CATEGORIES, MenuItem } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { MenuItemModal } from "@/components/MenuItemModal";
 
 // Add "All" to categories for the UI only
 const UI_CATEGORIES = ["All", ...MENU_CATEGORIES];
@@ -13,6 +15,8 @@ const UI_CATEGORIES = ["All", ...MENU_CATEGORIES];
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredItems = MENU_ITEMS.filter((item) => {
     // 1. Filter by Category
@@ -93,37 +97,66 @@ export default function MenuPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="group bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 flex flex-col"
+                className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 flex flex-col"
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-bold text-lg leading-tight">
-                    {item.name}
-                  </h3>
-                  <span className="text-primary font-bold whitespace-nowrap ml-2">
-                    ${item.price}
-                  </span>
+                {/* Image */}
+                <div className="aspect-video bg-muted relative overflow-hidden">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-muted-foreground/30 font-bold text-2xl">
+                        {item.name}
+                      </div>
+                    </div>
+                  )}
+                  {item.popular && (
+                    <div className="absolute top-3 left-3 bg-secondary text-secondary-foreground px-2 py-1 text-[10px] font-bold uppercase rounded-full tracking-wider">
+                      Bestseller
+                    </div>
+                  )}
                 </div>
-                <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                  {item.description}
-                </p>
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
-                  <div className="flex gap-2">
-                    {item.isVegetarian && (
-                      <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
-                        Veg
-                      </span>
-                    )}
-                    {item.isSpicy && (
-                      <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
-                        Spicy
-                      </span>
-                    )}
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-lg leading-tight">
+                      {item.name}
+                    </h3>
+                    <span className="text-primary font-bold whitespace-nowrap ml-2">
+                      ${item.price}
+                    </span>
                   </div>
-                  <Link href={`/menu/${item.id}`}>
-                    <button className="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1 hover:underline">
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {item.description}
+                  </p>
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+                    <div className="flex gap-2">
+                      {item.isVegetarian && (
+                        <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
+                          Veg
+                        </span>
+                      )}
+                      {item.isSpicy && (
+                        <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
+                          Spicy
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedItem(item);
+                        setIsModalOpen(true);
+                      }}
+                      className="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1 hover:underline"
+                    >
                       View & Order <ArrowRight className="w-4 h-4" />
                     </button>
-                  </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -136,6 +169,19 @@ export default function MenuPage() {
           )}
         </div>
       </div>
+
+      {/* Menu Item Modal */}
+      <MenuItemModal
+        item={selectedItem}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedItem(null);
+        }}
+        onItemChange={(item) => {
+          setSelectedItem(item);
+        }}
+      />
     </div>
   );
 }

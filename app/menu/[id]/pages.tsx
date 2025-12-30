@@ -1,3 +1,7 @@
+// Individual menu item page is disabled - using modal instead
+// This file is kept for reference but the route is not used
+
+/*
 import { notFound } from "next/navigation";
 import { MENU_ITEMS } from "@/lib/data";
 import ProductClient from "./ProductClient";
@@ -28,4 +32,10 @@ export default async function ProductPage({
   ).slice(0, 3);
 
   return <ProductClient item={item} relatedItems={relatedItems} />;
+}
+*/
+
+// Placeholder to prevent Next.js errors
+export default function DisabledPage() {
+  return null;
 }

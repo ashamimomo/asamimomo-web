@@ -11,7 +11,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { MenuItem } from "@/lib/data";
-import { useCartStore } from "@/store/cartStore";
+// import { useCartStore } from "@/store/cartStore";
 import { motion } from "framer-motion";
 
 interface ProductClientProps {
@@ -23,15 +23,15 @@ export default function ProductClient({
   item,
   relatedItems,
 }: ProductClientProps) {
-  const { addItem } = useCartStore();
+  // const { addItem } = useCartStore();
   const [quantity, setQuantity] = useState(1);
 
-  const handleAddToCart = () => {
-    // We add 'quantity' times
-    for (let i = 0; i < quantity; i++) {
-      addItem(item);
-    }
-  };
+  // const handleAddToCart = () => {
+  //   // We add 'quantity' times
+  //   for (let i = 0; i < quantity; i++) {
+  //     addItem(item);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen pt-28 pb-16 bg-background">
@@ -107,12 +107,13 @@ export default function ProductClient({
             </div>
 
             <div className="flex flex-col gap-3 mb-8">
-              <button
+              {/* Add to cart button commented out */}
+              {/* <button
                 onClick={handleAddToCart}
                 className="w-full bg-transparent border border-primary text-primary hover:bg-primary/5 py-4 rounded-lg font-bold uppercase tracking-wide transition-all"
               >
                 Add to Cart
-              </button>
+              </button> */}
               <button className="w-full bg-black text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-gray-900 transition-all border border-gray-800">
                 <span className="text-[#4285F4]">G</span>
                 <span className="text-[#EA4335]">P</span>

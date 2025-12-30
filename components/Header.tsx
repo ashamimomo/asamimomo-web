@@ -5,13 +5,13 @@ import Link from "next/link";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useCartStore } from "@/store/cartStore";
+// import { useCartStore } from "@/store/cartStore";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { items, openCart } = useCartStore();
-  const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
+  // const { items, openCart } = useCartStore();
+  // const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +56,8 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <button
+          {/* Cart button commented out */}
+          {/* <button
             onClick={openCart}
             className="relative p-2 hover:bg-muted rounded-full transition-colors group"
           >
@@ -66,7 +67,7 @@ export function Header() {
                 {cartCount}
               </span>
             )}
-          </button>
+          </button> */}
           <Link href="/menu">
             <button className="bg-primary text-primary-foreground px-6 py-2 rounded-full font-medium text-sm hover:bg-primary/90 transition-colors">
               Order Now
@@ -76,14 +77,15 @@ export function Header() {
 
         {/* Mobile Toggle */}
         <div className="flex items-center gap-4 md:hidden">
-          <button onClick={openCart} className="relative p-2">
+          {/* Cart button commented out */}
+          {/* <button onClick={openCart} className="relative p-2">
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
-          </button>
+          </button> */}
           <button onClick={() => setIsOpen(true)}>
             <Menu className="w-6 h-6" />
           </button>

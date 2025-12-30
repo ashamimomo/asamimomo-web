@@ -4,10 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { MENU_ITEMS } from "@/lib/data";
-import { useCartStore } from "@/store/cartStore";
+// import { useCartStore } from "@/store/cartStore";
 
 export default function Home() {
-  const { addItem } = useCartStore();
+  // const { addItem } = useCartStore();
   const featuredItems = MENU_ITEMS.filter((item) => item.popular).slice(0, 3);
 
   return (
@@ -94,12 +94,18 @@ export default function Home() {
                   <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                     {item.description}
                   </p>
-                  <button
+                  {/* Add to cart button commented out */}
+                  {/* <button
                     onClick={() => addItem(item)}
                     className="w-full py-3 rounded-lg border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted"
                   >
                     Add to Order
-                  </button>
+                  </button> */}
+                  <Link href="/menu">
+                    <button className="w-full py-3 rounded-lg border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted">
+                      View Menu <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
