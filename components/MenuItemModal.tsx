@@ -78,7 +78,7 @@ export function MenuItemModal({
               ref={modalRef}
               className="bg-background rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-border shadow-2xl"
             >
-              <div className="sticky top-0 bg-background border-b border-border p-6 flex items-center justify-between z-10">
+              <div className="sticky top-0 bg-background border-b border-border p-6 flex items-center justify-between z-20">
                 <h2 className="text-2xl font-bold">{item.name}</h2>
                 <button
                   onClick={onClose}

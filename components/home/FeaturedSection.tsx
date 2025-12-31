@@ -102,11 +102,6 @@ export default function FeaturedSection() {
                   >
                     Add to Order
                   </button> */}
-                  <Link href="/menu">
-                    <button className="w-full py-3 border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted">
-                      View Menu <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </Link>
                 </div>
               </motion.div>
             ))}

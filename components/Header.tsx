@@ -21,7 +21,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isTransparentPage = pathname === "/" || pathname === "/menu";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +44,7 @@ export function Header() {
       <div
         className={cn(
           "hidden lg:block bg-primary text-primary-foreground py-2 transition-all duration-300",
-          scrolled || !isHome
+          scrolled || !isTransparentPage
             ? "opacity-0 -translate-y-full h-0 p-0"
             : "opacity-100 translate-y-0"
         )}
@@ -67,7 +67,7 @@ export function Header() {
       <header
         className={cn(
           "fixed left-0 right-0 z-50 transition-all duration-500",
-          scrolled || !isHome
+          scrolled || !isTransparentPage
             ? "top-0 bg-background/95 backdrop-blur-xl border-b border-border py-3 shadow-lg"
             : "top-0 lg:top-8 bg-transparent py-5"
         )}
@@ -75,7 +75,9 @@ export function Header() {
         <div
           className={cn(
             "container mx-auto px-4 flex items-center transition-all duration-500",
-            scrolled || !isHome ? "justify-between" : "justify-center"
+            scrolled || !isTransparentPage
+              ? "justify-between"
+              : "justify-center"
           )}
         >
           <Link
@@ -85,7 +87,7 @@ export function Header() {
             <div
               className={cn(
                 "absolute -inset-2 bg-primary/20 blur-2xl rounded-full -z-10 transition-opacity",
-                scrolled || !isHome ? "opacity-0" : "opacity-100"
+                scrolled || !isTransparentPage ? "opacity-0" : "opacity-100"
               )}
             />
             <div className="flex items-center gap-2">
@@ -96,12 +98,12 @@ export function Header() {
                 height={100}
                 className={cn(
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
-                  scrolled || !isHome
+                  scrolled || !isTransparentPage
                     ? "h-12 w-12 block"
                     : "h-16 w-16 md:h-20 md:w-20 hidden"
                 )}
               />
-              {scrolled || !isHome ? (
+              {scrolled || !isTransparentPage ? (
                 <span className="text-lg font-bold tracking-widest uppercase transition-all hover:text-primary relative group">
                   ASHAMI<span className="text-secondary">MOMO</span>
                 </span>
@@ -119,7 +121,9 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-bold tracking-widest uppercase transition-all hover:text-primary focus:text-primary relative group",
-                  scrolled || !isHome ? "text-foreground" : "text-background"
+                  scrolled || !isTransparentPage
+                    ? "text-foreground"
+                    : "text-background"
                 )}
               >
                 {link.label}
@@ -135,7 +139,9 @@ export function Header() {
             <div
               className={cn(
                 "flex gap-4 text-sm font-bold tracking-widest uppercase transition-all relative group",
-                scrolled || !isHome ? "text-foreground" : "text-background"
+                scrolled || !isTransparentPage
+                  ? "text-foreground"
+                  : "text-background"
               )}
             >
               <a

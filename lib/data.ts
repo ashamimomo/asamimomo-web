@@ -31,87 +31,8 @@ export const MENU_ITEMS: MenuItem[] = [
   // Appetizers
   {
     id: "app-1",
-    name: "Vegetable Pakora",
-    price: 5.99,
-    description:
-      "Savory vegetable fritters, mildly spiced, dipped in a homemade batter and deep fried. Served with tamarind and mint sauce on the side.",
-    category: "Appetizers",
-    image: "/menu/appetizers/vegetable-pakora.jpg",
-    isVegetarian: true,
-    isGlutenFree: true, // Besan batter usually GF
-  },
-  {
-    id: "app-2",
-    name: "Chicken Choila",
-    price: 11.99,
-    description:
-      "Boneless chicken marinated in herbs, grilled in tandoori oven and Ashami flavorful spices.",
-    category: "Appetizers",
-    image: "/menu/appetizers/chicken-choila.jpg",
-    popular: true,
-  },
-  {
-    id: "app-3",
-    name: "Buff Choila",
-    price: 11.99, // Inferred from context
-    description:
-      "Boneless buff meat marinated in herbs, grilled in tandoori oven and Ashami flavorful spices.",
-    category: "Appetizers",
-    image: "/menu/appetizers/buff-choila.jpg",
-  },
-  {
-    id: "app-4",
-    name: "Pork Choila",
-    price: 11.99, // Inferred
-    description:
-      "Boneless pork meat marinated in herbs, grilled in tandoori oven and Ashami flavorful spices.",
-    category: "Appetizers",
-    image: "/menu/appetizers/pork-choila.jpg",
-  },
-  {
-    id: "app-5",
-    name: "Veg Samosa",
-    price: 9.99,
-    description:
-      "Fried pastry filled with savory spiced potatoes, onions, peas, cheese. Served with Tamarind and Green (Cilantro based) sauce on the side.",
-    category: "Appetizers",
-    image: "/menu/appetizers/veg-samosa.jpg",
-    isVegetarian: true,
-    popular: true,
-  },
-  {
-    id: "app-6",
-    name: "Shrimp Tampora",
-    price: 9.99,
-    description:
-      "Shrimp, mildly spiced, dipped in a homemade batter and deep fried.",
-    category: "Appetizers",
-    image: "/menu/appetizers/shrimp-tampora.jpg",
-  },
-  {
-    id: "app-7",
-    name: "Samosa Chat",
-    price: 9.99,
-    description:
-      "Samosa Topped with Seasoned Garbanzo beans with Yogurt, Chutney and Spices.",
-    category: "Appetizers",
-    image: "/menu/appetizers/samosa-chat.jpg",
-    isVegetarian: true,
-  },
-  {
-    id: "app-8",
-    name: "Mozzarella Sticks",
-    price: 6.99,
-    description:
-      "Cheese coated in a breaded crumb mixture and deeply fried for crispy taste comes with ranch.",
-    category: "Appetizers",
-    image: "/menu/appetizers/mozzarella-sticks.jpg",
-    isVegetarian: true,
-  },
-  {
-    id: "app-9",
     name: "French Fries",
-    price: 4.99,
+    price: 5.49,
     description: "Deep fried crispy potatoes.",
     category: "Appetizers",
     image: "/menu/appetizers/french-fries.jpg",
@@ -119,43 +40,133 @@ export const MENU_ITEMS: MenuItem[] = [
     isVegan: true,
   },
   {
-    id: "app-10",
+    id: "app-2",
     name: "Spring Roll",
-    price: 6.99,
+    price: 7.99,
     description:
-      "Vegetable fritters, mildly spiced wrapped in thin flour wrappers deeply fried served with Ashami tamarind and cilantro sauce.",
+      "Vegetable fritters, mildly spiced wrapped in thin flour wrappers deeply fried served with tamarind and green sauce.",
     category: "Appetizers",
     image: "/menu/appetizers/spring-roll.jpg",
     isVegetarian: true,
+    isVegan: true,
   },
   {
-    id: "app-11",
+    id: "app-3",
+    name: "Mozzarella Sticks",
+    price: 7.99,
+    description:
+      "Cheese coated in a breaded crumb mixture and deeply fried for crispy taste comes with ranch.",
+    category: "Appetizers",
+    image: "/menu/appetizers/mozzarella-sticks.jpg",
+    isVegetarian: true,
+  },
+  {
+    id: "app-4",
     name: "Onion Rings",
-    price: 6.99,
+    price: 7.99,
     description:
       "Deep fried breaded onion rings. Served with chipotle mayo on the side.",
     category: "Appetizers",
     image: "/menu/appetizers/onion-rings.jpg",
     isVegetarian: true,
+    isVegan: true,
   },
   {
-    id: "app-12",
-    name: "Non-Veg Platter",
-    price: 19.99,
+    id: "app-5",
+    name: "Shrimp Tempora",
+    price: 11.49,
     description:
-      "Served with Samosa, Spring Rolls, Wings (Plain, BBQ, Buffalo), MOMO (Chicken, Pork, Veg), French Fries, Shrimp Tempura along with Ketchup, MOMO Sauce, Green Chatney and Tamarind Sauce.",
+      "Shrimp mildly spiced dipped in a homemade batter and deep fried. Served with tamarind and green (Cilantro Based) sauce on the side.",
     category: "Appetizers",
-    image: "/menu/appetizers/non-veg-platter.jpg",
+    image: "/menu/appetizers/shrimp-tampora.jpg",
   },
   {
-    id: "app-13",
+    id: "app-6",
     name: "Veg Platter",
-    price: 16.99,
+    price: 19.99,
     description:
       "Served with pakora, samosa, spring rolls, french fries, onion rings and veg MOMO along with various dipping sauce.",
     category: "Appetizers",
     image: "/menu/appetizers/veg-platter.jpg",
     isVegetarian: true,
+  },
+  {
+    id: "app-7",
+    name: "Non-Veg Platter",
+    price: 23.99,
+    description:
+      "Served with Samosa, Spring Rolls, Wings, MOMO, French Fries, Shrimp, Tampora along with various dipping sauce.",
+    category: "Appetizers",
+    image: "/menu/appetizers/non-veg-platter.jpg",
+  },
+
+  // Street Style
+  {
+    id: "street-1",
+    name: "Street Style Sausage",
+    price: 9.99,
+    description:
+      "Simple & delicious chicken sausage chili popular on streets of kathmandu.",
+    category: "Street Style",
+    image: "/menu/street/sausage.png",
+  },
+  {
+    id: "street-2",
+    name: "Vegetable Pakora",
+    price: 7.49,
+    description:
+      "Savory vegetable fritters mildly spiced dipped in a homemade batter and deep fried Served with tamarind and green sauce on the side.",
+    category: "Street Style",
+    image: "/menu/appetizers/vegetable-pakora.jpg",
+    isVegetarian: true,
+    isVegan: true,
+  },
+  {
+    id: "street-3",
+    name: "Sadhyako Wai Wai",
+    price: 8.99,
+    description:
+      "Fried noodles (Wai Wa) mixed with fresh onions, tomato, coriander and spices.",
+    category: "Street Style",
+    image: "/menu/street/wai-wai.png",
+  },
+  {
+    id: "street-4",
+    name: "Haku Choila-Chicken",
+    price: 14.99,
+    description:
+      "Traditional Newari Dish marinated in ZuZu flavorful spices and grilled in tandoori oven. (SERVED COLD)",
+    category: "Street Style",
+    image: "/menu/appetizers/chicken-choila.jpg",
+  },
+  {
+    id: "street-5",
+    name: "Samosa (2 pieces)",
+    price: 6.99,
+    description:
+      "Fried pastry filled with a savory spiced potatoes, onions, peas, cheese served with tamarind and green (Cilantro Based) sauce on the side.",
+    category: "Street Style",
+    image: "/menu/appetizers/veg-samosa.jpg",
+    isVegetarian: true,
+  },
+  {
+    id: "street-6",
+    name: "Samosa Chat",
+    price: 11.99,
+    description:
+      "Samosa topped with seasoned peas, yogurt, chutney and spices.",
+    category: "Street Style",
+    image: "/menu/appetizers/samosa-chat.jpg",
+    isVegetarian: true,
+  },
+  {
+    id: "street-7",
+    name: "Kathmandu Style Chow Mein",
+    price: 16.99,
+    description:
+      "Kathmandu Street Style stir-fried noodles with vegetables or meat.",
+    category: "Street Style",
+    image: "/menu/chowmein/ashami-chow-mein.jpg",
   },
 
   // Chow Mein

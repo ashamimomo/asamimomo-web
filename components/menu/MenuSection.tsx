@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { MENU_ITEMS, MENU_CATEGORIES, MenuItem } from "@/lib/data";
@@ -10,6 +10,36 @@ import { MenuItemModal } from "@/components/MenuItemModal";
 
 // Add "All" to categories for the UI only
 const UI_CATEGORIES = ["All", ...MENU_CATEGORIES];
+
+const CATEGORY_HEROS: Record<string, string> = {
+  All: "/hero/hero-1.jpg",
+  Appetizers: "/menu/appetizers/french-fries.jpg",
+  "Chow Mein": "/menu/chowmein/ashami-chow-mein.jpg",
+  Chili: "/menu/chili/chicken-chili.jpg",
+  Wings: "/menu/wings/chicken-lollipop.jpg",
+  Momo: "/menu/momo/steam-momo.jpg",
+  Biryani: "/menu/biryani/house-special-biryani.jpg",
+  Curry: "/menu/curry/chicken-tikka-masala.jpg",
+  Rice: "/menu/rice/fried-rice.jpg",
+  Breads: "/menu/breads/garlic-naan.jpg",
+  Dessert: "/menu/dessert/tres-leches.jpg",
+  Beverages: "/menu/beverages/mango-lassi.jpg",
+};
+
+const CATEGORY_TAGLINES: Record<string, string> = {
+  All: "A Symphony of Himalayan Flavors",
+  Appetizers: "Perfect Starters for a Grand Meal",
+  "Chow Mein": "Wok-Tossed Perfection",
+  Chili: "Spicy, Bold, and Surprising",
+  Wings: "Crispy, Saucy, and Addictive",
+  Momo: "Our Signature Himalayan Dumplings",
+  Biryani: "Fragrant Rice and Royal Spices",
+  Curry: "Hearty and Traditional Classics",
+  Rice: "The Perfect Side for Every Dish",
+  Breads: "Freshly Baked Tandoori Delights",
+  Dessert: "Sweet Endings to Your Journey",
+  Beverages: "Refreshing Traditional Drinks",
+};
 
 export default function MenuSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -31,164 +61,198 @@ export default function MenuSection() {
   });
 
   return (
-    <div className="min-h-screen pt-32 pb-12 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-diamond-subtle opacity-5 z-0" />
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">
-            Our Culinary Offerings
-          </span>
-          <h1 className="text-5xl md:text-7xl font-heading font-black mb-6 text-primary">
-            Our Menu
-          </h1>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-6" />
-          <p className="text-muted-foreground text-xl italic font-serif">
-            Fresh, Authentic, Delicious Himalayan Cuisine.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Dynamic Hero Section */}
+      <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center">
+        <AnimatePresence>
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.95, ease: "easeInOut" }}
+            className="absolute inset-0 z-0"
+          >
+            <Image
+              src={CATEGORY_HEROS[activeCategory] || CATEGORY_HEROS["All"]}
+              alt={activeCategory}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60 bg-gradient-to-b from-black/40 via-transparent to-background" />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="container relative z-10 px-4 text-center">
+          <motion.span
+            key={`tagline-${activeCategory}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block text-secondary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+          >
+            {activeCategory === "All" ? "Our Full Menu" : activeCategory}
+          </motion.span>
+          <motion.h1
+            key={`title-${activeCategory}`}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-8xl font-heading font-black text-white mb-6 uppercase tracking-tight"
+          >
+            {activeCategory === "All" ? "Culinary Delights" : activeCategory}
+          </motion.h1>
+          <motion.p
+            key={`desc-${activeCategory}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-white/80 text-xl font-sans max-w-2xl mx-auto"
+          >
+            {CATEGORY_TAGLINES[activeCategory] || CATEGORY_TAGLINES["All"]}
+          </motion.p>
         </div>
+      </section>
 
-        {/* Search & Filter Bar - Sticky */}
-        <div className="sticky top-20 z-40 bg-background/95 backdrop-blur-sm py-4 border-b border-border mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search */}
-            <div className="relative w-full md:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search current category..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-muted rounded-full pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-            </div>
-
-            {/* Categories */}
-            <div className="flex overflow-x-auto w-full md:w-auto gap-2 pb-2 md:pb-0 no-scrollbar">
+      <div className="container mx-auto px-4 py-16 relative">
+        {/* Search & Filter Bar - Enhanced for Laptop */}
+        <div className="sticky top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
+          <div className="flex flex-col gap-8">
+            {/* Categories - Wrapping Layout */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
               {UI_CATEGORIES.map((category) => (
                 <button
                   key={category}
                   onClick={() => {
                     setActiveCategory(category);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+                    "px-5 py-2 rounded-full text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 border-2",
                     activeCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      ? "bg-primary border-primary text-primary-foreground shadow-xl shadow-primary/20 scale-105"
+                      : "bg-background border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
                   )}
                 >
                   {category}
                 </button>
               ))}
             </div>
+
+            {/* Search - Centered on large screens */}
+            <div className="relative w-full max-w-lg mx-auto">
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground/60" />
+              <input
+                type="text"
+                placeholder="Search flavors, spices, and more..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-muted/30 border-2 border-border/50 rounded-full pl-14 pr-8 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Menu Grid */}
-        <div className="space-y-12">
-          <div className="flex items-center justify-between border-b-2 border-primary/10 pb-4">
-            <h2 className="text-3xl font-heading font-bold flex items-center gap-3 text-primary">
-              <span className="w-2 h-10 bg-secondary rounded-full"></span>
-              {activeCategory === "All"
-                ? "All Culinary Delights"
-                : activeCategory}
-            </h2>
-            <span className="text-muted-foreground font-serif italic">
-              {filteredItems.length} delicacies found
-            </span>
+        {/* Creative Menu Grid - 2 Column for Laptop */}
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-16 px-4">
+            <div className="space-y-2">
+              <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tight">
+                {activeCategory === "All" ? "Our Menu" : activeCategory}
+              </h2>
+              <div className="h-1.5 w-20 bg-secondary rounded-full" />
+            </div>
+            <div className="hidden sm:block text-right">
+              <span className="text-3xl font-heading font-bold text-primary/20 block leading-none">
+                {filteredItems.length}
+              </span>
+              <span className="text-[10px] uppercase font-black tracking-widest text-muted-foreground">
+                Options
+              </span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 flex flex-col"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: (index % 2) * 0.1 }}
+                className="group relative flex flex-col sm:flex-row gap-6 p-4 rounded-3xl hover:bg-muted/30 transition-all duration-500 cursor-pointer border border-transparent hover:border-primary/10 shadow-sm hover:shadow-xl hover:shadow-primary/5"
+                onClick={() => {
+                  setSelectedItem(item);
+                  setIsModalOpen(true);
+                }}
               >
-                {/* Image */}
-                <div className="aspect-video bg-muted relative overflow-hidden">
+                {/* Image Section - Elegant Proportions */}
+                <div className="w-full sm:w-44 lg:w-52 aspect-square shrink-0 bg-muted relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/5 transform transition-transform duration-700 group-hover:scale-[1.02]">
                   {item.image ? (
                     <Image
                       src={item.image}
                       alt={item.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-muted-foreground/30 font-bold text-2xl">
-                        {item.name}
-                      </div>
+                    <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                      <span className="text-primary/20 font-black text-5xl uppercase select-none">
+                        {item.name[0]}
+                      </span>
                     </div>
                   )}
-                  {item.popular && (
-                    <div className="absolute top-3 left-3 bg-secondary text-secondary-foreground px-2 py-1 text-[10px] font-bold uppercase rounded-full tracking-wider">
-                      Bestseller
-                    </div>
-                  )}
+                  {/* Category Badge on Image */}
+                  <div className="absolute bottom-3 left-3 flex gap-1.5">
+                    {item.popular && (
+                      <span className="bg-secondary/90 backdrop-blur-md text-white text-[8px] font-black uppercase px-2 py-0.5 rounded shadow-sm">
+                        Popular
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-lg leading-tight">
-                      {item.name}
-                    </h3>
-                    <span className="text-primary font-bold whitespace-nowrap ml-2">
-                      ${item.price}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
-                    <div className="flex gap-2">
-                      <span className="text-[10px] uppercase font-bold text-primary border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
-                        {item.category}
+                {/* Content Section - Sophisticated Typography */}
+                <div className="flex-grow flex flex-col justify-between py-2">
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start gap-4">
+                      <h3 className="text-xl md:text-2xl font-heading font-black text-foreground group-hover:text-primary transition-colors flex flex-wrap items-center gap-2 leading-tight">
+                        {item.name}
+                        {item.isVegan && (
+                          <span className="text-[9px] uppercase font-black text-green-700 bg-green-100/80 px-2 py-0.5 rounded-full border border-green-200">
+                            Vegan
+                          </span>
+                        )}
+                        {item.isVegetarian && !item.isVegan && (
+                          <span className="text-[9px] uppercase font-black text-green-700 bg-green-100/80 px-2 py-0.5 rounded-full border border-green-200">
+                            Veg
+                          </span>
+                        )}
+                        {item.isSpicy && (
+                          <span className="text-[9px] uppercase font-black text-red-700 bg-red-100/80 px-2 py-0.5 rounded-full border border-red-200">
+                            Spicy
+                          </span>
+                        )}
+                        {!item.isVegan && !item.isVegetarian && (
+                          <span className="text-[9px] uppercase font-black text-red-700 bg-red-100/80 px-2 py-0.5 rounded-full border border-red-200">
+                            Non-Veg
+                          </span>
+                        )}
+                      </h3>
+                      <span className="text-xl font-heading font-black text-primary shrink-0 leading-none pt-1">
+                        ${item.price}
                       </span>
-                      {item.popular && (
-                        <span className="text-[10px] uppercase font-bold text-secondary border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
-                          Popular
-                        </span>
-                      )}
-                      {item.isVegan && (
-                        <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
-                          Vegan
-                        </span>
-                      )}
-                      {item.isVegetarian && (
-                        <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
-                          Veg
-                        </span>
-                      )}
-                      {item.isSpicy && (
-                        <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
-                          Spicy
-                        </span>
-                      )}
-                      {!item.isVegetarian && (
-                        <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
-                          Non-Veg
-                        </span>
-                      )}
-                      {item.isGlutenFree && (
-                        <span className="text-[10px] uppercase font-bold text-yellow-500 border border-yellow-500/20 bg-yellow-500/10 px-2 py-0.5 rounded">
-                          GF
-                        </span>
-                      )}
                     </div>
-                    <button
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setIsModalOpen(true);
-                      }}
-                      className="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1 hover:underline"
-                    >
-                      View & Order <ArrowRight className="w-4 h-4" />
-                    </button>
+
+                    <p className="text-muted-foreground text-base leading-relaxed font-sans line-clamp-3 group-hover:text-foreground transition-colors">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-4">
+                    <div className="flex items-center gap-2 group/btn">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-primary/40 group-hover:text-primary transition-colors">
+                        Discover More
+                      </span>
+                      <div className="w-8 h-[2px] bg-primary/20 group-hover:w-16 group-hover:bg-primary transition-all duration-500" />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -196,8 +260,21 @@ export default function MenuSection() {
           </div>
 
           {filteredItems.length === 0 && (
-            <div className="text-center py-20 text-muted-foreground">
-              <p>No items found in this category.</p>
+            <div className="text-center py-32 bg-muted/20 rounded-3xl border-2 border-dashed border-border">
+              <Search className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">No delicacies found</h3>
+              <p className="text-muted-foreground">
+                Try searching for something else or explore another category.
+              </p>
+              <button
+                onClick={() => {
+                  setActiveCategory("All");
+                  setSearchQuery("");
+                }}
+                className="mt-6 text-primary font-bold underline underline-offset-4"
+              >
+                Clear all filters
+              </button>
             </div>
           )}
         </div>
