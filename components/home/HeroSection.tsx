@@ -45,7 +45,7 @@ export default function HeroSection() {
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
-        direction="vertical"
+        direction="horizontal"
         loop={true}
         speed={1000}
         autoplay={{
@@ -84,7 +84,14 @@ export default function HeroSection() {
             </div>
 
             {/* Content Container */}
-            <div className="container relative z-10 h-full flex items-center px-4">
+            <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center">
+              <Image
+                src="/ashami-logo.jpg"
+                alt="Logo"
+                width={1000}
+                height={1000}
+                className="relative z-10 h-50 w-50 object-contain rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 mb-6"
+              />
               <div className="max-w-3xl">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
@@ -99,7 +106,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-5xl md:text-7xl lg:text-8xl font-google-sans font-black mb-6 tracking-tight text-white leading-[0.9]"
+                  className="text-5xl md:text-7xl lg:text-8xl font-roboto font-black mb-6 tracking-tight text-white"
                 >
                   {slide.title}
                 </motion.h1>
@@ -117,7 +124,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-6"
+                  className="flex items-center justify-center flex-col sm:flex-row gap-6"
                 >
                   <Link href="/menu">
                     <button className="bg-primary text-primary-foreground px-10 py-5 rounded-full font-bold text-xl hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3 shadow-2xl shadow-primary/30 group">
