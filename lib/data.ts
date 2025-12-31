@@ -662,3 +662,34 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   // Fountain drinks omitted for simplicity unless requested explicitly as selectable items (usually in-store only)
 ];
+
+export const SHOWCASE_VIDEOS = [
+  {
+    id: 1,
+    url: "/story/ashami-story-1.mp4",
+    poster: "/story/poster/ashami-story-1.png",
+    title: "Handcrafted With Love",
+    description: "Ashami Style Haku choila",
+  },
+  {
+    id: 2,
+    url: "/story/ashami-story-2.mp4",
+    poster: "/story/poster/ashami-story-2.png",
+    title: "The Perfect Texture",
+    description: "Ashami Style Catering",
+  },
+  {
+    id: 3,
+    url: "/story/ashami-story-3.mp4",
+    poster: "/story/poster/ashami-story-3.png",
+    title: "Vibrant Flavors",
+    description: "Ashami Style Momo",
+  },
+  {
+    id: 4,
+    url: "/story/ashami-story-4.mp4",
+    poster: "/story/poster/ashami-story-4.png",
+    title: "Served With Pride",
+    description: "Ashami Authentic Xoilaa",
+  },
+];

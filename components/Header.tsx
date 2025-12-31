@@ -43,9 +43,7 @@ export function Header() {
           className="text-3xl font-heading font-black tracking-tighter text-primary group"
         >
           ASHAMI
-          <span className="text-secondary group-hover:text-foreground transition-colors">
-            MOMO
-          </span>
+          <span className="text-secondary  transition-colors">MOMO</span>
         </Link>
 
         {/* Desktop Nav */}

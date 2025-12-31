@@ -21,7 +21,7 @@ export default function HeroSection() {
           >
             <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full -z-10" />
             <img
-              src="/logo.jpg"
+              src="/ashami-logo.jpg"
               alt="Ashami Momo Logo"
               className="w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full border-8 border-background shadow-2xl object-cover"
             />
