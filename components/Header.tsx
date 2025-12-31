@@ -37,15 +37,7 @@ export function Header() {
           : "bg-transparent py-6"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-3xl font-heading font-black tracking-tighter text-primary group"
-        >
-          ASHAMI
-          <span className="text-secondary  transition-colors">MOMO</span>
-        </Link>
-
+      <div className="container mx-auto px-4 flex items-center justify-center">
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
