@@ -146,6 +146,19 @@ export default function MenuSection() {
                   </p>
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
                     <div className="flex gap-2">
+                      <span className="text-[10px] uppercase font-bold text-primary border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
+                        {item.category}
+                      </span>
+                      {item.popular && (
+                        <span className="text-[10px] uppercase font-bold text-secondary border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
+                          Popular
+                        </span>
+                      )}
+                      {item.isVegan && (
+                        <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
+                          Vegan
+                        </span>
+                      )}
                       {item.isVegetarian && (
                         <span className="text-[10px] uppercase font-bold text-green-500 border border-green-500/20 bg-green-500/10 px-2 py-0.5 rounded">
                           Veg
@@ -154,6 +167,16 @@ export default function MenuSection() {
                       {item.isSpicy && (
                         <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
                           Spicy
+                        </span>
+                      )}
+                      {!item.isVegetarian && (
+                        <span className="text-[10px] uppercase font-bold text-red-500 border border-red-500/20 bg-red-500/10 px-2 py-0.5 rounded">
+                          Non-Veg
+                        </span>
+                      )}
+                      {item.isGlutenFree && (
+                        <span className="text-[10px] uppercase font-bold text-yellow-500 border border-yellow-500/20 bg-yellow-500/10 px-2 py-0.5 rounded">
+                          GF
                         </span>
                       )}
                     </div>

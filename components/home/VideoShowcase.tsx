@@ -64,7 +64,10 @@ export default function VideoShowcase() {
   };
 
   return (
-    <section className="py-24 bg-[#FAF9F6] relative overflow-hidden border-y border-border/50">
+    <section
+      id="about"
+      className="py-24 bg-[#FAF9F6] relative overflow-hidden border-y border-border/50"
+    >
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full bg-diamond opacity-5 z-0" />
 
@@ -138,7 +141,7 @@ export default function VideoShowcase() {
             {SHOWCASE_VIDEOS.map((video, idx) => (
               <SwiperSlide
                 key={video.id}
-                className="w-[300px] md:w-[350px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl relative group bg-black border-8 border-white"
+                className="w-[300px] md:w-[350px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl relative group bg-black border-3 border-white"
               >
                 <video
                   ref={(el) => {

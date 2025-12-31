@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <>
-      <section className="relative min-h-full flex items-center justify-center overflow-hidden mt-20 py-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-diamond-subtle opacity-40 z-0" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background z-0" />
@@ -52,7 +52,7 @@ export default function HeroSection() {
               </Link>
               <Link href="/contact">
                 <button className="px-10 py-5 rounded-full font-bold text-xl border-2 border-border hover:bg-muted transition-all text-foreground hover:border-primary/30">
-                  Find Us
+                  Contact Us
                 </button>
               </Link>
             </div>

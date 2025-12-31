@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { MENU_ITEMS } from "@/lib/data";
 
 export default function FeaturedSection() {
@@ -33,14 +34,54 @@ export default function FeaturedSection() {
               >
                 <div className="aspect-video bg-muted relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opactiy-60" />
-                  {/* Placeholder for Item Image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 font-bold text-4xl">
-                    Coming Soon
-                  </div>
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-muted-foreground/30 font-bold text-2xl">
+                        {item.name}
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute bottom-4 left-4 z-20">
                     <span className="bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
                       {item.category}
                     </span>
+                    {item.popular && (
+                      <span className="bg-secondary text-secondary-foreground text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        Popular
+                      </span>
+                    )}
+                    {item.isVegetarian && (
+                      <span className="bg-green-500 text-green-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        Veg
+                      </span>
+                    )}
+                    {item.isVegan && (
+                      <span className="bg-green-500 text-green-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        Vegan
+                      </span>
+                    )}
+                    {item.isSpicy && (
+                      <span className="bg-red-500 text-red-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        Spicy
+                      </span>
+                    )}
+                    {!item.isVegetarian && (
+                      <span className="bg-red-500 text-red-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        Non-Veg
+                      </span>
+                    )}
+                    {item.isGlutenFree && (
+                      <span className="bg-yellow-500 text-yellow-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                        GF
+                      </span>
+                    )}
                   </div>
                 </div>
 
