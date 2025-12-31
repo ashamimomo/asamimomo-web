@@ -30,7 +30,7 @@ export default function FeaturedSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors"
+                className="group relative bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors"
               >
                 <div className="aspect-video bg-muted relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opactiy-60" />
@@ -103,7 +103,7 @@ export default function FeaturedSection() {
                     Add to Order
                   </button> */}
                   <Link href="/menu">
-                    <button className="w-full py-3 rounded-lg border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted">
+                    <button className="w-full py-3 border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted">
                       View Menu <ArrowRight className="w-4 h-4" />
                     </button>
                   </Link>
