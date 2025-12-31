@@ -18,7 +18,7 @@ const HERO_SLIDES = [
     id: 1,
     image: "/hero/hero-1.jpg",
     subtitle: "Authentic Himalayan Taste",
-    title: "Handcrafted MOMOS",
+    title: "HANDCRAFTED MOMOS",
     description:
       "Experience the finest dumplings, steamed to perfection with traditional spices of Nepal.",
   },
@@ -26,7 +26,7 @@ const HERO_SLIDES = [
     id: 2,
     image: "/hero/hero-2.png",
     subtitle: "Newari Spices & Heritage",
-    title: "Spicy CHOILA",
+    title: "SPICY CHOILA",
     description:
       "Grilled to smoky perfection and tossed in a vibrant blend of Himalayan herbs.",
   },
@@ -34,7 +34,7 @@ const HERO_SLIDES = [
     id: 3,
     image: "/hero/hero-3.jpg",
     subtitle: "The King of Flavors",
-    title: "Pork Chilli",
+    title: "PORK CHILLI",
     description:
       "A fragrant symphony of long-grain basmati rice, tender meat, and royal spices.",
   },
@@ -45,11 +45,11 @@ export default function HeroSection() {
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
-        effect="fade"
+        direction="vertical"
         loop={true}
         speed={1000}
         autoplay={{
-          delay: 5000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -67,10 +67,10 @@ export default function HeroSection() {
             {/* Background Image with Ken Burns Effect */}
             <div className="absolute inset-0 z-0 overflow-hidden">
               <motion.div
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 10, ease: "linear" }}
-                className="h-full w-full"
+                initial={{ scale: 1, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="h-[115%] w-full"
               >
                 <Image
                   src={slide.image}
@@ -79,7 +79,7 @@ export default function HeroSection() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
               </motion.div>
             </div>
 
@@ -90,7 +90,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-block text-secondary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+                  className="inline-block text-secondary font-bold tracking-xs uppercase text-sm mb-4"
                 >
                   {slide.subtitle}
                 </motion.span>
@@ -99,12 +99,9 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-6xl md:text-8xl lg:text-9xl font-heading font-black mb-6 tracking-tight text-white leading-[0.9]"
+                  className="text-5xl md:text-7xl lg:text-8xl font-google-sans font-black mb-6 tracking-tight text-white leading-[0.9]"
                 >
-                  {slide.title.split(" ")[0]}
-                  <span className="block text-primary">
-                    {slide.title.split(" ")[1]}
-                  </span>
+                  {slide.title}
                 </motion.h1>
 
                 <motion.p

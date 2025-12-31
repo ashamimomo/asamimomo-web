@@ -14,7 +14,7 @@ export default function ContactForm() {
             Contact Us
           </h1>
           <div className="w-24 h-1 bg-secondary mx-auto mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto text-xl italic font-serif">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-xl font-playfair">
             We'd love to hear from you. Visit us for a meal, call for takeout,
             or send us a message.
           </p>
@@ -92,45 +92,53 @@ export default function ContactForm() {
             className="bg-card border border-border p-8 rounded-2xl shadow-lg"
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">First Name</label>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
+                    First Name
+                  </label>
                   <input
                     type="text"
-                    className="w-full bg-muted border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                     placeholder="John"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Last Name</label>
+                <div className="space-y-3">
+                  <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
+                    Last Name
+                  </label>
                   <input
                     type="text"
-                    className="w-full bg-muted border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                     placeholder="Doe"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Email</label>
+              <div className="space-y-3">
+                <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
+                  Email Address
+                </label>
                 <input
                   type="email"
-                  className="w-full bg-muted border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                   placeholder="john@example.com"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Message</label>
+              <div className="space-y-3">
+                <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
+                  Message
+                </label>
                 <textarea
-                  className="w-full bg-muted border border-border rounded-lg px-4 py-3 min-h-[150px] focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full bg-muted/30 border-2 border-border/50 rounded-[2rem] px-6 py-5 min-h-[180px] text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                   placeholder="How can we help you?"
                 />
               </div>
 
-              <button className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
-                Send Message <Send className="w-4 h-4" />
+              <button className="w-full bg-primary text-primary-foreground font-black uppercase tracking-widest py-5 rounded-full hover:bg-secondary hover:text-white transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-primary/20 mt-4">
+                Send Message <Send className="w-5 h-5" />
               </button>
             </form>
           </motion.div>

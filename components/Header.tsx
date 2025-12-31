@@ -77,7 +77,7 @@ export function Header() {
             "container mx-auto px-4 flex items-center transition-all duration-500",
             scrolled || !isTransparentPage
               ? "justify-between"
-              : "justify-center"
+              : "md:justify-center justify-between"
           )}
         >
           <Link
@@ -100,7 +100,7 @@ export function Header() {
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
                   scrolled || !isTransparentPage
                     ? "h-12 w-12 block"
-                    : "h-16 w-16 md:h-20 md:w-20 hidden"
+                    : "h-16 w-16 md:h-20 md:w-20 block md:hidden"
                 )}
               />
               {scrolled || !isTransparentPage ? (
@@ -182,12 +182,7 @@ export function Header() {
           </nav>
 
           {/* Mobile Toggle */}
-          <div className="flex items-center gap-4 md:hidden">
-            <Link href="/menu">
-              <button className="bg-primary text-primary-foreground p-3 rounded-full shadow-lg">
-                <ShoppingBag className="w-5 h-5" />
-              </button>
-            </Link>
+          <div className="flex justify-between gap-4 md:hidden">
             <button
               onClick={() => setIsOpen(true)}
               className="p-2 text-foreground"
@@ -201,14 +196,14 @@ export function Header() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
+              initial={{ opacity: 0, y: "-100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="fixed inset-y-0 right-0 bg-background w-full sm:w-80 h-screen z-[60] flex flex-col p-10 shadow-2xl md:hidden"
             >
               <div className="flex justify-between items-center mb-16">
-                <span className="text-3xl font-heading font-black text-primary tracking-tighter">
+                <span className="text-3xl font-roboto font-black text-primary tracking-tighter">
                   ASHAMI<span className="text-secondary">MOMO</span>
                 </span>
                 <button

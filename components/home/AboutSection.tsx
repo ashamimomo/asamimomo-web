@@ -1,6 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
+import NextImage from "next/image";
 
 export default function AboutSection() {
   return (
@@ -12,21 +13,34 @@ export default function AboutSection() {
         <div className="absolute inset-0 bg-diamond opacity-5 z-0" />
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center relative z-10">
           <div className="relative">
-            <div className="aspect-square rounded-2xl bg-white border border-border p-12 flex flex-col items-center justify-center relative z-10 -rotate-2 hover:rotate-0 transition-transform duration-700 shadow-xl">
-              <div className="flex gap-2">
-                <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
-                <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
-                <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
-                <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
-                <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+            <div className="aspect-square rounded-2xl bg-white border border-border overflow-hidden flex flex-col items-center justify-center relative z-10 -rotate-2 hover:rotate-0 transition-transform duration-700 shadow-xl">
+              {/* Subtle background image */}
+              <div className="absolute inset-0 opacity-40 z-0">
+                <NextImage
+                  src="/testimonial-bg.png"
+                  alt="Background"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <p className="text-center text-xl italic text-foreground font-serif leading-relaxed">
-                "Delicious 😋"
-              </p>
-              <span className="mt-4 font-bold text-secondary uppercase tracking-widest text-xs">
-                - Pra Bin Du Adhikari
-              </span>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent z-1" />
+
+              <div className="relative z-10 flex flex-col items-center justify-center p-12">
+                <div className="flex gap-2">
+                  <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+                  <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+                  <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+                  <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+                  <Star className="w-12 h-12 text-secondary mb-6 fill-secondary" />
+                </div>
+                <p className="text-center text-xl italic text-foreground font-serif leading-relaxed">
+                  "Delicious 😋"
+                </p>
+                <span className="mt-4 font-bold text-secondary uppercase tracking-widest text-xs">
+                  - Pra Bin Du Adhikari
+                </span>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+              </div>
             </div>
             <div className="absolute top-8 -left-8 w-full h-full border-2 border-secondary/20 rounded-2xl -z-0" />
           </div>

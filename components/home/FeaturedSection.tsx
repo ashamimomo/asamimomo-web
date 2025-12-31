@@ -30,7 +30,7 @@ export default function FeaturedSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors"
+                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-colors"
               >
                 <div className="aspect-video bg-muted relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opactiy-60" />
@@ -39,7 +39,7 @@ export default function FeaturedSection() {
                       src={item.image}
                       alt={item.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

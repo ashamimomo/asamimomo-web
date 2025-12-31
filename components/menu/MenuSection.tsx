@@ -63,7 +63,7 @@ export default function MenuSection() {
   return (
     <div className="min-h-screen bg-background">
       {/* Dynamic Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-[50vh] min-h-[200px] w-full overflow-hidden flex items-center justify-center">
         <AnimatePresence>
           <motion.div
             key={activeCategory}
@@ -80,7 +80,7 @@ export default function MenuSection() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-black/60 bg-gradient-to-b from-black/40 via-transparent to-background" />
+            <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
