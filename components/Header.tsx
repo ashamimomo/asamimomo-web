@@ -40,9 +40,12 @@ export function Header() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tighter text-primary"
+          className="text-3xl font-heading font-black tracking-tighter text-primary group"
         >
-          ASHAMI<span className="text-foreground">MOMO</span>
+          ASHAMI
+          <span className="text-secondary group-hover:text-foreground transition-colors">
+            MOMO
+          </span>
         </Link>
 
         {/* Desktop Nav */}

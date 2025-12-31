@@ -3,16 +3,17 @@ import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-muted text-muted-foreground pt-16 pb-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-muted/80 backdrop-blur-sm text-muted-foreground pt-16 pb-8 border-t border-border/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-diamond-subtle opacity-5 z-0" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tighter text-primary mb-4 block"
+              className="text-3xl font-heading font-black tracking-tighter text-primary mb-4 block"
             >
-              ASHAMI<span className="text-foreground">MOMO</span>
+              ASHAMI<span className="text-secondary">MOMO</span>
             </Link>
             <p className="mb-6 max-w-xs">
               Authentic Himalayan flavors in the heart of Malden. Experience the
