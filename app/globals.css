@@ -52,7 +52,10 @@
 
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui;
   --font-serif: var(--font-playfair), ui-serif, Georgia;
-  --font-heading: var(--font-playfair), ui-serif, Georgia;
+  --font-heading: var(--font-syne-google), var(--font-playfair), ui-serif,
+    Georgia;
+  --font-syne: var(--font-syne-google), sans-serif;
+  --font-syncopate: var(--font-syncopate-google), sans-serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);

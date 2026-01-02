@@ -16,12 +16,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import TiktokIcon from "./icons/TiktokIcon";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isTransparentPage = pathname === "/" || pathname === "/menu";
+  const isOpaque = scrolled || !isTransparentPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ export function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/menu", label: "Menu" },
-    { href: "/#about", label: "Our Story" },
+    { href: "/#showcase", label: "Our Story" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -44,7 +46,7 @@ export function Header() {
       <div
         className={cn(
           "hidden lg:block bg-primary text-primary-foreground py-2 transition-all duration-300",
-          scrolled || !isTransparentPage
+          isOpaque
             ? "opacity-0 -translate-y-full h-0 p-0"
             : "opacity-100 translate-y-0"
         )}
@@ -67,7 +69,7 @@ export function Header() {
       <header
         className={cn(
           "fixed left-0 right-0 z-50 transition-all duration-500",
-          scrolled || !isTransparentPage
+          isOpaque
             ? "top-0 bg-background/95 backdrop-blur-xl border-b border-border py-3 shadow-lg"
             : "top-0 lg:top-8 bg-transparent py-5"
         )}
@@ -75,9 +77,7 @@ export function Header() {
         <div
           className={cn(
             "container mx-auto px-4 flex items-center transition-all duration-500",
-            scrolled || !isTransparentPage
-              ? "justify-between"
-              : "md:justify-center justify-between"
+            isOpaque ? "justify-between" : "md:justify-center justify-between"
           )}
         >
           <Link
@@ -87,7 +87,7 @@ export function Header() {
             <div
               className={cn(
                 "absolute -inset-2 bg-primary/20 blur-2xl rounded-full -z-10 transition-opacity",
-                scrolled || !isTransparentPage ? "opacity-0" : "opacity-100"
+                isOpaque ? "opacity-0" : "opacity-100"
               )}
             />
             <div className="flex items-center gap-2">
@@ -98,12 +98,12 @@ export function Header() {
                 height={100}
                 className={cn(
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
-                  scrolled || !isTransparentPage
+                  isOpaque
                     ? "h-12 w-12 block"
                     : "h-16 w-16 md:h-20 md:w-20 block md:hidden"
                 )}
               />
-              {scrolled || !isTransparentPage ? (
+              {isOpaque ? (
                 <span className="text-lg font-bold tracking-widest uppercase transition-all hover:text-primary relative group">
                   ASHAMI<span className="text-secondary">MOMO</span>
                 </span>
@@ -121,9 +121,7 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-bold tracking-widest uppercase transition-all hover:text-primary focus:text-primary relative group",
-                  scrolled || !isTransparentPage
-                    ? "text-foreground"
-                    : "text-background"
+                  isOpaque ? "text-foreground" : "text-background"
                 )}
               >
                 {link.label}
@@ -139,9 +137,7 @@ export function Header() {
             <div
               className={cn(
                 "flex gap-4 text-sm font-bold tracking-widest uppercase transition-all relative group",
-                scrolled || !isTransparentPage
-                  ? "text-foreground"
-                  : "text-background"
+                isOpaque ? "text-foreground" : "text-background"
               )}
             >
               <a
@@ -166,17 +162,7 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center hover:text-primary transition-colors"
               >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 fill-current"
-                >
-                  <title>TikTok</title>
-                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                </svg>
+                <TiktokIcon />
               </a>
             </div>
           </nav>
@@ -242,10 +228,10 @@ export function Header() {
 
                 <div className="pt-8 border-t border-border flex flex-col gap-4 text-sm text-muted-foreground">
                   <p className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-primary" /> (781) 605-1815
+                    <Phone className="w-4 h-4 text-primary" /> (781) 960-8819
                   </p>
                   <p className="flex items-center gap-3">
-                    <MapPin className="w-4 h-4 text-primary" /> 236 Bryant St,
+                    <MapPin className="w-4 h-4 text-primary" /> 278 Pearl St,
                     Malden, MA
                   </p>
                 </div>

@@ -145,7 +145,7 @@ export default function MenuSection() {
             key={`title-${activeCategory}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-heading font-black text-white mb-6 uppercase tracking-tight"
+            className="text-4xl md:text-7xl font-syncopate font-bold text-white mb-6 uppercase tracking-widest leading-tight"
           >
             <span className="block text-secondary">
               {activeCategory === "All" ? "Culinary Delights" : activeCategory}
@@ -275,14 +275,14 @@ export default function MenuSection() {
                             Veg
                           </span>
                         )}
-                        {item.isSpicy && (
-                          <span className="text-[9px] uppercase font-black text-red-700 bg-red-100/80 px-2 py-0.5 rounded-full border border-red-200">
-                            Spicy
-                          </span>
-                        )}
                         {!item.isVegan && !item.isVegetarian && (
                           <span className="text-[9px] uppercase font-black text-red-700 bg-red-100/80 px-2 py-0.5 rounded-full border border-red-200">
                             Non-Veg
+                          </span>
+                        )}
+                        {item.isSpicy && (
+                          <span className="text-[9px] uppercase font-black text-red-700 bg-red-100/80 px-2 py-0.5 rounded-full border border-red-200">
+                            Spicy
                           </span>
                         )}
                       </h3>
