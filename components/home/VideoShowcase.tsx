@@ -65,8 +65,8 @@ export default function VideoShowcase() {
 
   return (
     <section
-      id="about"
-      className="py-24 bg-[#FAF9F6] relative overflow-hidden border-y border-border/50"
+      id="showcase"
+      className="section-padding bg-[#FAF9F6] relative overflow-hidden border-y border-border/50"
     >
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full bg-diamond opacity-5 z-0" />
@@ -141,7 +141,7 @@ export default function VideoShowcase() {
             {SHOWCASE_VIDEOS.map((video, idx) => (
               <SwiperSlide
                 key={video.id}
-                className="w-[300px] md:w-[350px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl relative group bg-black border-3 border-white"
+                className="w-[300px] md:w-[350px] aspect-[9/16] rounded-[3rem] overflow-hidden shadow-2xl relative group bg-black border-[6px] border-white/80 backdrop-blur-sm"
               >
                 <video
                   ref={(el) => {
@@ -157,11 +157,11 @@ export default function VideoShowcase() {
                 />
 
                 {/* Overlay Content */}
-                <div className="absolute inset-x-0 bottom-0 p-8 pt-24 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end">
-                  <h3 className="text-2xl font-heading font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <div className="absolute inset-x-0 bottom-0 p-10 pt-32 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end">
+                  <h3 className="text-3xl font-heading font-black text-white mb-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     {video.title}
                   </h3>
-                  <p className="text-white/70 text-sm font-sans leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-white/80 text-base font-sans leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {video.description}
                   </p>
                 </div>

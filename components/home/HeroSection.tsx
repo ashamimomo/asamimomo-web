@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,8 +42,20 @@ const HERO_SLIDES = [
 ];
 
 export default function HeroSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
+    <section
+      ref={containerRef}
+      className="relative h-screen min-h-[700px] w-full overflow-hidden"
+    >
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         direction="horizontal"
@@ -64,14 +77,9 @@ export default function HeroSection() {
       >
         {HERO_SLIDES.map((slide) => (
           <SwiperSlide key={slide.id} className="relative h-full w-full">
-            {/* Background Image with Ken Burns Effect */}
+            {/* Background Image with Parallax Effect */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-              <motion.div
-                initial={{ scale: 1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="h-[115%] w-full"
-              >
+              <motion.div style={{ y }} className="relative h-[120%] w-full">
                 <Image
                   src={slide.image}
                   alt={slide.title}
@@ -79,7 +87,7 @@ export default function HeroSection() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-black/20 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-black/30 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
               </motion.div>
             </div>
 
@@ -93,22 +101,24 @@ export default function HeroSection() {
                 className="relative z-10 h-50 w-50 object-contain rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 mb-6"
               />
               <div className="max-w-3xl">
-                <motion.span
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-block text-secondary font-bold tracking-xs uppercase text-sm mb-4"
+                  className="inline-flex items-center px-3 py-2 rounded-full bg-primary/70 border border-secondary/30 backdrop-blur-md mb-6"
                 >
-                  {slide.subtitle}
-                </motion.span>
+                  <span className="text-white font-black tracking-widest uppercase text-xs">
+                    {slide.subtitle}
+                  </span>
+                </motion.div>
 
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-5xl md:text-7xl lg:text-8xl font-roboto font-black mb-6 tracking-tight text-white"
+                  className="text-5xl md:text-7xl lg:text-8xl font-heading font-black mb-6 tracking-tight text-white drop-shadow-2xl"
                 >
-                  {slide.title}
+                  <span className="block text-secondary">{slide.title}</span>
                 </motion.h1>
 
                 <motion.p

@@ -10,27 +10,49 @@ export default function FeaturedSection() {
   const featuredItems = MENU_ITEMS.filter((item) => item.popular).slice(0, 3);
   return (
     <>
-      <section className="py-24 bg-white relative">
+      <section className="section-padding bg-white relative">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">
+          <div className="text-center mb-20">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-secondary font-black tracking-[0.3em] uppercase text-xs mb-4 block"
+            >
+              Chef's Selection
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-heading font-black mb-6 text-primary"
+            >
               Customer Favorites
-            </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6" />
-            <p className="text-muted-foreground text-lg">
-              Loved by locals, crafted for you.
-            </p>
+            </motion.h2>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-8" />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground text-xl font-sans max-w-2xl mx-auto"
+            >
+              Loved by locals, crafted for you. Experience our most popular
+              delicacies.
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-colors"
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="group relative bg-white rounded-2xl border border-border overflow-hidden hover:border-primary/20 transition-all duration-500 shadow-xl hover:shadow-2xl glass-card"
               >
                 <div className="aspect-video bg-muted relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opactiy-60" />
@@ -48,38 +70,23 @@ export default function FeaturedSection() {
                       </div>
                     </div>
                   )}
-                  <div className="absolute bottom-4 left-4 z-20">
-                    <span className="bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
+                  <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-2">
+                    <span className="bg-primary/90 backdrop-blur-md text-primary-foreground text-[10px] font-black uppercase px-3 py-1 rounded-full">
                       {item.category}
                     </span>
                     {item.popular && (
-                      <span className="bg-secondary text-secondary-foreground text-xs font-bold px-2 py-1 rounded-full ml-2">
+                      <span className="bg-secondary/90 backdrop-blur-md text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">
                         Popular
                       </span>
                     )}
                     {item.isVegetarian && (
-                      <span className="bg-green-500 text-green-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                      <span className="bg-green-600/90 backdrop-blur-md text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">
                         Veg
                       </span>
                     )}
-                    {item.isVegan && (
-                      <span className="bg-green-500 text-green-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
-                        Vegan
-                      </span>
-                    )}
                     {item.isSpicy && (
-                      <span className="bg-red-500 text-red-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
+                      <span className="bg-red-600/90 backdrop-blur-md text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">
                         Spicy
-                      </span>
-                    )}
-                    {!item.isVegetarian && (
-                      <span className="bg-red-500 text-red-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
-                        Non-Veg
-                      </span>
-                    )}
-                    {item.isGlutenFree && (
-                      <span className="bg-yellow-500 text-yellow-50 text-xs font-bold px-2 py-1 rounded-full ml-2">
-                        GF
                       </span>
                     )}
                   </div>

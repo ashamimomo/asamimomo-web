@@ -1,7 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { MENU_ITEMS, MENU_CATEGORIES, MenuItem } from "@/lib/data";
@@ -41,11 +46,42 @@ const CATEGORY_TAGLINES: Record<string, string> = {
   Beverages: "Refreshing Traditional Drinks",
 };
 
+const variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    zIndex: 0,
+    x: direction < 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+};
+
 export default function MenuSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [[categoryPage, direction], setCategoryPage] = useState([0, 0]);
+  const activeCategory = UI_CATEGORIES[categoryPage];
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const paginate = (newPageIndex: number) => {
+    const newDirection = newPageIndex > categoryPage ? 1 : -1;
+    setCategoryPage([newPageIndex, newDirection]);
+  };
+
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const filteredItems = MENU_ITEMS.filter((item) => {
     // 1. Filter by Category
@@ -63,43 +99,57 @@ export default function MenuSection() {
   return (
     <div className="min-h-screen bg-background">
       {/* Dynamic Hero Section */}
-      <section className="relative h-[50vh] min-h-[200px] w-full overflow-hidden flex items-center justify-center">
-        <AnimatePresence>
+      <section
+        ref={heroRef}
+        className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center"
+      >
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.95, ease: "easeInOut" }}
+            key={categoryPage}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.6 },
+            }}
             className="absolute inset-0 z-0"
           >
-            <Image
-              src={CATEGORY_HEROS[activeCategory] || CATEGORY_HEROS["All"]}
-              alt={activeCategory}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
+            <motion.div style={{ y }} className="relative h-[120%] w-full">
+              <Image
+                src={CATEGORY_HEROS[activeCategory] || CATEGORY_HEROS["All"]}
+                alt={activeCategory}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
         <div className="container relative z-10 px-4 text-center">
-          <motion.span
-            key={`tagline-${activeCategory}`}
+          <motion.div
+            key={`tagline-badge-${activeCategory}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block text-secondary font-bold tracking-[0.3em] uppercase text-sm mb-4"
+            className="inline-flex items-center px-3 py-2 rounded-full bg-primary/70 border border-secondary/30 backdrop-blur-md mb-6"
           >
-            {activeCategory === "All" ? "Our Full Menu" : activeCategory}
-          </motion.span>
+            <span className="text-white font-black tracking-widest uppercase text-xs">
+              {activeCategory === "All" ? "Our Full Menu" : activeCategory}
+            </span>
+          </motion.div>
           <motion.h1
             key={`title-${activeCategory}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-8xl font-heading font-black text-white mb-6 uppercase tracking-tight"
           >
-            {activeCategory === "All" ? "Culinary Delights" : activeCategory}
+            <span className="block text-secondary">
+              {activeCategory === "All" ? "Culinary Delights" : activeCategory}
+            </span>
           </motion.h1>
           <motion.p
             key={`desc-${activeCategory}`}
@@ -118,11 +168,11 @@ export default function MenuSection() {
           <div className="flex flex-col gap-8">
             {/* Categories - Wrapping Layout */}
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {UI_CATEGORIES.map((category) => (
+              {UI_CATEGORIES.map((category, index) => (
                 <button
                   key={category}
                   onClick={() => {
-                    setActiveCategory(category);
+                    paginate(index);
                   }}
                   className={cn(
                     "px-5 py-2 rounded-full text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 border-2",
@@ -268,7 +318,7 @@ export default function MenuSection() {
               </p>
               <button
                 onClick={() => {
-                  setActiveCategory("All");
+                  paginate(0); // Index for "All"
                   setSearchQuery("");
                 }}
                 className="mt-6 text-primary font-bold underline underline-offset-4"

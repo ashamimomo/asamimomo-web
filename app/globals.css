@@ -22,8 +22,8 @@
   --card-foreground: #1a1a1a;
 
   /* Borders */
-  --border: #e2dec9;
-  --input: #e2dec9;
+  --border: rgba(161, 27, 30, 0.1);
+  --input: rgba(161, 27, 30, 0.1);
   --ring: #a11b1e;
 
   /* Radius */
@@ -130,6 +130,25 @@
   .stamped {
     position: relative;
     display: inline-block;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(161, 27, 30, 0.05);
+  }
+
+  .glass-dark {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
 
