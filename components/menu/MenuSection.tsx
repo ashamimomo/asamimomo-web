@@ -286,7 +286,7 @@ export default function MenuSection() {
                           </span>
                         )}
                       </h3>
-                      <span className="text-xl font-heading font-black text-primary shrink-0 leading-none pt-1">
+                      <span className="text-xl font-black text-primary shrink-0 leading-none pt-1">
                         ${item.price}
                       </span>
                     </div>

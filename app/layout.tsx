@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import {
-  Inter,
   Outfit,
   Playfair_Display,
   Roboto,
-  Google_Sans,
   Syne,
   Syncopate,
 } from "next/font/google";
