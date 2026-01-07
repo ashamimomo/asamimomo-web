@@ -132,7 +132,14 @@ export default function MenuSection() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="container relative z-10 px-4 text-center">
+        <div className="container flex flex-col items-center justify-center relative z-10 px-4 text-center">
+          <Image
+            src="/ashami-logo.jpg"
+            alt="Logo"
+            width={1000}
+            height={1000}
+            className="relative z-10 h-30 w-30 object-contain rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 mb-6"
+          />
           <motion.div
             key={`tagline-badge-${activeCategory}`}
             initial={{ opacity: 0, y: 20 }}

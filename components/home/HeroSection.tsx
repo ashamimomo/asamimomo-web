@@ -98,7 +98,7 @@ export default function HeroSection() {
                 alt="Logo"
                 width={1000}
                 height={1000}
-                className="relative z-10 h-50 w-50 object-contain rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 mb-6"
+                className="relative z-10 md:h-50 md:w-50 h-30 w-30 object-contain rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 mb-6"
               />
               <div className="max-w-3xl">
                 <motion.div
@@ -137,13 +137,13 @@ export default function HeroSection() {
                   className="flex items-center justify-center flex-col sm:flex-row gap-6"
                 >
                   <Link href="/menu">
-                    <button className="bg-primary text-primary-foreground px-10 py-5 rounded-full font-bold text-xl hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3 shadow-2xl shadow-primary/30 group">
+                    <button className="bg-primary text-primary-foreground md:px-10 px-8 md:py-5 py-4 rounded-full font-bold md:text-xl text-lg hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3 shadow-2xl shadow-primary/30 group">
                       Explore Menu{" "}
                       <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
                   <Link href="/contact">
-                    <button className="px-10 py-5 rounded-full font-bold text-xl border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all transform hover:scale-105 active:scale-95">
+                    <button className="md:px-10 px-8 md:py-5 py-4 rounded-full font-bold md:text-xl text-lg border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all transform hover:scale-105 active:scale-95">
                       Visit Us
                     </button>
                   </Link>

@@ -169,7 +169,9 @@ export function Header() {
           <div className="flex justify-between gap-4 md:hidden">
             <button
               onClick={() => setIsOpen(true)}
-              className="p-2 text-foreground"
+              className={`p-2 text-foreground ${
+                isOpaque ? "text-foreground" : "text-white"
+              }`}
             >
               <Menu className="w-6 h-6" />
             </button>
