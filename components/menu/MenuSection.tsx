@@ -306,7 +306,7 @@ export default function MenuSection() {
                       <div className="w-8 h-[2px] bg-primary/20 group-hover:w-16 group-hover:bg-primary transition-all duration-500" />
                     </div>
                     <Link href="/contact">
-                      <div className="w-8 h-8 hover:w-9 hover:h-9 transition-all duration-100">
+                      <div className="w-8 h-8 hover:w-8.5 hover:h-8.5 text-primary/40 hover:text-red-700 transition-all duration-100">
                         <OrderIcon />
                       </div>
                     </Link>

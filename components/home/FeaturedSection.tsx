@@ -100,8 +100,8 @@ export default function FeaturedSection() {
                       ${item.price}
                     </span>
                   </div>
-                  <div className="flex justify-between items-start mb-2">
-                    <p className="text-muted-foreground text-sm mb-4 ">
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="text-muted-foreground max-w-[80%] text-sm mb-4 ">
                       {item.description}
                     </p>
                     {/* Add to cart button commented out */}
@@ -112,7 +112,7 @@ export default function FeaturedSection() {
                     Add to Order
                   </button> */}
                     <Link href="/contact">
-                      <div className="w-8 h-8 hover:w-9 hover:h-9 transition-all duration-100">
+                      <div className="w-8 h-8 hover:w-9 hover:h-9 text-red-700 transition-all duration-100">
                         <OrderIcon />
                       </div>
                     </Link>
