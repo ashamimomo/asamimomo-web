@@ -116,7 +116,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-5xl md:text-7xl lg:text-8xl font-syne font-bold mb-6 tracking-tight text-white drop-shadow-2xl"
+                  className="text-5xl md:text-7xl lg:text-8xl font-syne font-black mb-6 tracking-tight text-white drop-shadow-2xl"
                 >
                   <span className="block text-secondary">{slide.title}</span>
                 </motion.h1>

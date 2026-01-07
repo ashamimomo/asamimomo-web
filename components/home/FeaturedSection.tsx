@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { MENU_ITEMS } from "@/lib/data";
+import { OrderIcon } from "../icons/OrderIcon";
 
 export default function FeaturedSection() {
   const featuredItems = MENU_ITEMS.filter((item) => item.popular).slice(0, 3);
@@ -92,23 +93,30 @@ export default function FeaturedSection() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="px-6">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold">{item.name}</h3>
                     <span className="text-lg font-bold text-primary">
                       ${item.price}
                     </span>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {item.description}
-                  </p>
-                  {/* Add to cart button commented out */}
-                  {/* <button
+                  <div className="flex justify-between items-start mb-2">
+                    <p className="text-muted-foreground text-sm mb-4 ">
+                      {item.description}
+                    </p>
+                    {/* Add to cart button commented out */}
+                    {/* <button
                     onClick={() => addItem(item)}
                     className="w-full py-3 rounded-lg border border-border font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all flex items-center justify-center gap-2 group-hover:bg-muted"
                   >
                     Add to Order
                   </button> */}
+                    <Link href="/contact">
+                      <div className="w-8 h-8 hover:w-9 hover:h-9 transition-all duration-100">
+                        <OrderIcon />
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}

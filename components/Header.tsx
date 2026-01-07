@@ -98,9 +98,7 @@ export function Header() {
                 height={100}
                 className={cn(
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
-                  isOpaque
-                    ? "h-12 w-12 block"
-                    : "h-16 w-16 block hidden"
+                  isOpaque ? "h-12 w-12 block" : "h-16 w-16 block hidden"
                 )}
               />
               {isOpaque ? (
@@ -129,8 +127,8 @@ export function Header() {
               </Link>
             ))}
 
-            <Link href="/menu">
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-primary/20">
+            <Link href="/contact">
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 cursor-pointer">
                 Order Online
               </button>
             </Link>

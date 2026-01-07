@@ -12,6 +12,8 @@ import Image from "next/image";
 import { MENU_ITEMS, MENU_CATEGORIES, MenuItem } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { MenuItemModal } from "@/components/MenuItemModal";
+import { OrderIcon } from "../icons/OrderIcon";
+import Link from "next/link";
 
 // Add "All" to categories for the UI only
 const UI_CATEGORIES = ["All", ...MENU_CATEGORIES];
@@ -164,7 +166,7 @@ export default function MenuSection() {
 
       <div className="container mx-auto px-4 py-16 relative">
         {/* Search & Filter Bar - Enhanced for Laptop */}
-        <div className="sticky top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
+        <div className="md:sticky block top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
           <div className="flex flex-col gap-8">
             {/* Categories - Wrapping Layout */}
             <div className="flex flex-wrap items-center justify-center gap-2">
@@ -296,13 +298,18 @@ export default function MenuSection() {
                     </p>
                   </div>
 
-                  <div className="mt-6 flex items-center gap-4">
+                  <div className="mt-6 flex items-end justify-between gap-4">
                     <div className="flex items-center gap-2 group/btn">
                       <span className="text-[10px] font-black uppercase tracking-widest text-primary/40 group-hover:text-primary transition-colors">
                         Discover More
                       </span>
                       <div className="w-8 h-[2px] bg-primary/20 group-hover:w-16 group-hover:bg-primary transition-all duration-500" />
                     </div>
+                    <Link href="/contact">
+                      <div className="w-8 h-8 hover:w-9 hover:h-9 transition-all duration-100">
+                        <OrderIcon />
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
