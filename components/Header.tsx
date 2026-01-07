@@ -100,7 +100,7 @@ export function Header() {
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
                   isOpaque
                     ? "h-12 w-12 block"
-                    : "h-16 w-16 md:h-20 md:w-20 block md:hidden"
+                    : "h-16 w-16 block hidden"
                 )}
               />
               {isOpaque ? (
@@ -173,7 +173,7 @@ export function Header() {
               onClick={() => setIsOpen(true)}
               className="p-2 text-foreground"
             >
-              <Menu className="w-8 h-8" />
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -182,19 +182,19 @@ export function Header() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: "-100%" }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: "-100%" }}
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed inset-y-0 right-0 bg-background w-full sm:w-80 h-screen z-[60] flex flex-col p-10 shadow-2xl md:hidden"
+              className="fixed inset-y-0 right-0 bg-background w-full sm:w-80 h-screen z-[60] flex flex-col p-8 shadow-2xl md:hidden"
             >
               <div className="flex justify-between items-center mb-16">
-                <span className="text-3xl font-roboto font-black text-primary tracking-tighter">
+                <span className="text-2xl font-roboto font-black tracking-tighter">
                   ASHAMI<span className="text-secondary">MOMO</span>
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full bg-muted"
+                  className="p-1 rounded-full bg-muted"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -206,7 +206,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-heading font-bold hover:text-primary transition-colors flex items-center justify-between group"
+                    className="text-2xl font-bold hover:text-primary transition-colors flex items-center justify-between group"
                   >
                     {link.label}
                     <motion.div

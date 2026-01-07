@@ -125,7 +125,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-white/80 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-sans"
+                  className="text-white/80 text-lg md:text-xl max-w-2xl mb-10 text-center font-sans"
                 >
                   {slide.description}
                 </motion.p>

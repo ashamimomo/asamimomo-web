@@ -89,7 +89,7 @@ export default function ContactForm() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-card border border-border p-8 rounded-2xl shadow-lg"
+            className="bg-card border border-border p-8 rounded-2xl shadow-lg bg-muted/30"
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
