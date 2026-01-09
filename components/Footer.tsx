@@ -1,18 +1,27 @@
-import Link from "next/link";
 import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import TiktokIcon from "./icons/TiktokIcon";
 
 export function Footer() {
   return (
-    <footer className="bg-muted text-muted-foreground pt-16 pb-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-amber-50 backdrop-blur-sm text-muted-foreground pt-16 pb-8 border-t border-border/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-diamond-subtle opacity-5 z-0" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tighter text-primary mb-4 block"
+              className="text-3xl font-heading font-black tracking-tighter text-primary mb-4 block"
             >
-              ASHAMI<span className="text-foreground">MOMO</span>
+              <Image
+                src="/ashami-logo.jpg"
+                alt="Logo"
+                width={1000}
+                height={1000}
+                className="w-24 h-24 object-contain"
+              />
             </Link>
             <p className="mb-6 max-w-xs">
               Authentic Himalayan flavors in the heart of Malden. Experience the
@@ -39,12 +48,9 @@ export function Footer() {
                 href="https://www.tiktok.com/@ashamimomo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="flex items-center justify-center hover:text-primary transition-colors"
               >
-                {/* Lucide doesn't have Tiktok yet, using text or generic icon */}
-                <span className="font-bold text-sm border rounded px-1">
-                  TikTok
-                </span>
+                <TiktokIcon />
               </a>
             </div>
           </div>

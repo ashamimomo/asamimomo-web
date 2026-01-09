@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  /* Base Colors */
-  --background: #0f0f0f;
-  --foreground: #f5f5f5;
+  /* Base Colors - Inspired by Logo Parchment/Cream */
+  --background: #fdfcf7;
+  --foreground: #1a1a1a;
 
-  /* Primary Brand Color (Vibrant Red) */
-  --primary: #dc2626; /* red-600 */
+  /* Primary Brand Color (Deep Logo Red) */
+  --primary: #a11b1e;
   --primary-foreground: #ffffff;
 
-  /* Secondary/Accent (Gold/Amber) */
-  --secondary: #d97706; /* amber-600 */
+  /* Secondary/Accent (Golden Orange from Logo) */
+  --secondary: #d88d1d;
   --secondary-foreground: #ffffff;
 
-  /* Muted/Neutral */
-  --muted: #262626; /* neutral-800 */
-  --muted-foreground: #a3a3a3; /* neutral-400 */
+  /* Muted/Neutral (Warm Grays) */
+  --muted: #f3f1e9;
+  --muted-foreground: #666666;
 
   /* Cards/Surfaces */
-  --card: #171717; /* neutral-900 */
-  --card-foreground: #f5f5f5;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
 
   /* Borders */
-  --border: #262626;
-  --input: #262626;
-  --ring: #dc2626;
+  --border: rgba(161, 27, 30, 0.1);
+  --input: rgba(161, 27, 30, 0.1);
+  --ring: #a11b1e;
 
   /* Radius */
   --radius: 0.5rem;
@@ -50,8 +50,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
-  --font-heading: var(--font-outfit), ui-sans-serif, system-ui;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui;
+  --font-serif: var(--font-playfair), ui-serif, Georgia;
+  --font-heading: var(--font-syne-google), var(--font-playfair), ui-serif,
+    Georgia;
+  --font-syne: var(--font-syne-google), sans-serif;
+  --font-syncopate: var(--font-syncopate-google), sans-serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -63,12 +67,99 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Diamond Pattern inspired by the chef's hat in the logo */
+  .bg-diamond {
+    background-color: var(--background);
+    background-image: linear-gradient(
+        30deg,
+        var(--muted) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        var(--muted) 87.5%,
+        var(--muted)
+      ),
+      linear-gradient(
+        150deg,
+        var(--muted) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        var(--muted) 87.5%,
+        var(--muted)
+      ),
+      linear-gradient(
+        30deg,
+        var(--muted) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        var(--muted) 87.5%,
+        var(--muted)
+      ),
+      linear-gradient(
+        150deg,
+        var(--muted) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        var(--muted) 87.5%,
+        var(--muted)
+      ),
+      linear-gradient(
+        60deg,
+        var(--border) 25%,
+        transparent 25.5%,
+        transparent 75%,
+        var(--border) 75%,
+        var(--border)
+      ),
+      linear-gradient(
+        60deg,
+        var(--border) 25%,
+        transparent 25.5%,
+        transparent 75%,
+        var(--border) 75%,
+        var(--border)
+      );
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  }
+
+  .bg-diamond-subtle {
+    background-color: var(--background);
+    background-image: radial-gradient(var(--border) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+  }
+
+  /* Stamped / Distressed look for accents */
+  .stamped {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(161, 27, 30, 0.05);
+  }
+
+  .glass-dark {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  line-height: 1.6;
 }
 
 h1,
@@ -78,38 +169,44 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--primary);
 }
 
 /* Custom Scrollbar Styling */
-/* Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--background);
-  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 10px;
-  border: 2px solid var(--background);
+  background: var(--border);
+  border-radius: 6px;
+  border: 3px solid var(--background);
   transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--secondary);
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--muted) var(--background);
+  scrollbar-color: var(--border) var(--background);
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--secondary);
+  color: white;
 }
