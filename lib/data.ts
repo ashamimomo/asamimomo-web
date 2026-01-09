@@ -88,7 +88,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Breaded mozzarella fried until crispy, served with ranch dressing.",
     category: "Appetizers",
     isVegetarian: true,
-    image: "/menu/appetizers/veg-samosa.jpg",
+    image: "/menu/appetizers/mozzarella-sticks.jpg",
   },
   {
     id: "app-8",
