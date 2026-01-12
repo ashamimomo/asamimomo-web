@@ -153,7 +153,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Crispy samosa topped with peas, yogurt, chutneys, and spices.",
     category: "Chaat & Noodles",
     isVegetarian: true,
-    image: "/menu/appetizers/samosa-chat.jpg",
+    image: "/menu/chaat&noodles/samosa-chat.jpg",
   },
   {
     id: "cn-2",
@@ -161,7 +161,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 11.99,
     description: "Street-style stir-fried noodles with vegetables or chicken.",
     category: "Chaat & Noodles",
-    image: "/menu/chowmein/ashami-chow-mein.jpg",
+    image: "/menu/chaat&noodles/ashami-chow-mein.jpg",
   },
 
   /* =======================
