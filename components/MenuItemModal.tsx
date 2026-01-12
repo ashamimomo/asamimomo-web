@@ -141,21 +141,6 @@ export function MenuItemModal({
                       </button>
                     </Link>
 
-                    <div className="mb-8">
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <span>Share:</span>
-                        <button className="hover:text-foreground">
-                          <Facebook className="w-4 h-4" />
-                        </button>
-                        <button className="hover:text-foreground">
-                          <Twitter className="w-4 h-4" />
-                        </button>
-                        <button className="hover:text-foreground">
-                          <Linkedin className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-
                     <div className="prose prose-invert max-w-none text-muted-foreground border-t border-border pt-6">
                       <p>{item.description}</p>
                       <p className="mt-4 text-sm italic">
