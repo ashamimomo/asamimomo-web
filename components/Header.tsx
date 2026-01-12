@@ -17,13 +17,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import TiktokIcon from "./icons/TiktokIcon";
+import path from "path";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isTransparentPage = pathname === "/" || pathname === "/menu";
+  const isTransparentPage = pathname === "/";
   const isOpaque = scrolled || !isTransparentPage;
+  const isMenuPage = pathname === "/menu";
 
   useEffect(() => {
     const handleScroll = () => {

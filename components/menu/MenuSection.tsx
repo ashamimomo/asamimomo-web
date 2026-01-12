@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { MenuItemModal } from "@/components/MenuItemModal";
 import { OrderIcon } from "../icons/OrderIcon";
 import Link from "next/link";
+import { useMobile } from "@/hooks/useMobile";
 
 // Add "All" to categories for the UI only
 const UI_CATEGORIES = ["All", ...MENU_CATEGORIES];
@@ -71,7 +72,9 @@ export default function MenuSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pageYOffset, setPageYOffset] = useState(-120);
   const menuGridRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMobile();
 
   const paginate = (newPageIndex: number) => {
     const newDirection = newPageIndex > categoryPage ? 1 : -1;
@@ -84,29 +87,42 @@ export default function MenuSection() {
     //     block: "start",
     //   });
     // });
-    requestAnimationFrame(() => {
-      if (!menuGridRef.current) return;
+  };
 
-      const yOffset = -120; //offset
+  useEffect(() => {
+    if (isMobile) {
+      setPageYOffset(-120);
+    } else {
+      setPageYOffset(300);
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (!menuGridRef.current) return;
+
+    // wait for Framer Motion + layout to settle
+    const id = requestAnimationFrame(() => {
       const y =
-        menuGridRef.current.getBoundingClientRect().top +
+        menuGridRef.current!.getBoundingClientRect().top +
         window.pageYOffset +
-        yOffset;
+        pageYOffset;
 
       window.scrollTo({
         top: y,
         behavior: "smooth",
       });
     });
-  };
 
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
+    return () => cancelAnimationFrame(id);
+  }, [categoryPage]);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  // const heroRef = useRef<HTMLElement>(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: heroRef,
+  //   offset: ["start start", "end start"],
+  // });
+
+  // const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const filteredItems = MENU_ITEMS.filter((item) => {
     // 1. Filter by Category
@@ -123,7 +139,7 @@ export default function MenuSection() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Dynamic Hero Section */}
+      {/* Dynamic Hero Section
       <section
         ref={heroRef}
         className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center"
@@ -192,11 +208,11 @@ export default function MenuSection() {
             {CATEGORY_TAGLINES[activeCategory] || CATEGORY_TAGLINES["All"]}
           </motion.p>
         </div>
-      </section>
+      </section> */}
 
       <div className="container mx-auto px-4 py-16 relative">
         {/* Search & Filter Bar - Enhanced for Laptop */}
-        <div className="top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
+        <div className="md:sticky block top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
           <div className="flex flex-col gap-8">
             {/* Categories - Wrapping Layout */}
             <div className="flex flex-wrap items-center justify-center gap-2">
