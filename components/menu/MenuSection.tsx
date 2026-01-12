@@ -81,40 +81,22 @@ export default function MenuSection() {
     setCategoryPage([newPageIndex, newDirection]);
 
     // Smooth scroll to menu grid without offseting
-    // requestAnimationFrame(() => {
-    //   menuGridRef.current?.scrollIntoView({
-    //     behavior: "smooth",
-    //     block: "start",
-    //   });
-    // });
-  };
-
-  useEffect(() => {
-    if (isMobile) {
-      setPageYOffset(-120);
-    } else {
-      setPageYOffset(300);
-    }
-  }, [isMobile]);
-
-  useEffect(() => {
-    if (!menuGridRef.current) return;
-
-    // wait for Framer Motion + layout to settle
-    const id = requestAnimationFrame(() => {
-      const y =
-        menuGridRef.current!.getBoundingClientRect().top +
-        window.pageYOffset +
-        pageYOffset;
-
-      window.scrollTo({
-        top: y,
+    requestAnimationFrame(() => {
+      menuGridRef.current?.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
     });
-
-    return () => cancelAnimationFrame(id);
-  }, [categoryPage]);
+    // requestAnimationFrame(() => {
+    //   if (!menuGridRef.current) return;
+    //   const yOffset = -120; //offset
+    //   const y =
+    //     menuGridRef.current.getBoundingClientRect().top +
+    //     window.pageYOffset +
+    //     yOffset;
+    //   window.scrollTo({ top: y, behavior: "smooth" });
+    // });
+  };
 
   // const heroRef = useRef<HTMLElement>(null);
   // const { scrollYProgress } = useScroll({
@@ -138,7 +120,7 @@ export default function MenuSection() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div ref={menuGridRef} className="min-h-screen bg-background">
       {/* Dynamic Hero Section
       <section
         ref={heroRef}
@@ -249,7 +231,7 @@ export default function MenuSection() {
         </div>
 
         {/* Creative Menu Grid - 2 Column for Laptop */}
-        <div ref={menuGridRef} className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16 px-4">
             <div className="space-y-2">
               <h2 className="block text-4xl md:text-5xl font-heading font-black text-primary tracking-tight">
