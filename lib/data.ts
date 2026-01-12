@@ -185,6 +185,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Grilled pork belly cooked with onions, bell peppers and chef special spices.",
     category: "Ashami Chili",
     isSpicy: true,
+    popular: true,
     image: "/menu/chili/smokey-pork-belly-chili.jpg",
   },
   {
@@ -285,6 +286,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 14.99,
     description: "Frenched chicken wings cooked with chef special spices.",
     category: "Fried Wings",
+    popular: true,
     image: "/menu/wings/chicken-lollipop.jpg",
   },
 
