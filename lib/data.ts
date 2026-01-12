@@ -390,7 +390,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Handcrafted Nepali-style vegetable momos, filled with a flavorful mix of fresh cabbage, carrots, onions, herbs, and aromatic Ashami’s signature momo spices Carefully wrapped in soft, thin dough and expertly flash-frozen to preserve freshness, texture, and authentic taste.",
     category: "Frozen Momo",
-    image: "/menu/frozen-momo/frozen-pork-momo.jpeg",
+    image: "/menu/frozen-momo/frozen-chicken-momo.webp",
   },
   {
     id: "frozen-5",
@@ -399,7 +399,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Handcrafted Nepali-style paneer momos, filled with a flavorful mix of fresh paneer onions, herbs, and aromatic Ashami’s signature momo spices Carefully wrapped in soft, thin dough and expertly flash-frozen to preserve freshness, texture, and authentic taste.",
     category: "Frozen Momo",
-    image: "/menu/frozen-momo/frozen-buff-momo.jpeg",
+    image: "/menu/frozen-momo/frozen-pork-momo.jpeg",
   },
 ];
 
