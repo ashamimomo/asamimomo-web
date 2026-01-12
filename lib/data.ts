@@ -319,7 +319,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Fried momo tossed with onions, peppers, chili sauce, and Sichuan pepper.",
     category: "Momo",
     isSpicy: true,
-    image: "/menu/momo/chilli-momo.jpg",
+    image: "/menu/momo/chili-momo.jpeg",
   },
   {
     id: "momo-4",
