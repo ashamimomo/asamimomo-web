@@ -71,10 +71,33 @@ export default function MenuSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const menuGridRef = useRef<HTMLDivElement>(null);
 
   const paginate = (newPageIndex: number) => {
     const newDirection = newPageIndex > categoryPage ? 1 : -1;
     setCategoryPage([newPageIndex, newDirection]);
+
+    // Smooth scroll to menu grid without offseting
+    // requestAnimationFrame(() => {
+    //   menuGridRef.current?.scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "start",
+    //   });
+    // });
+    requestAnimationFrame(() => {
+      if (!menuGridRef.current) return;
+
+      const yOffset = -120; //offset
+      const y =
+        menuGridRef.current.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    });
   };
 
   const heroRef = useRef<HTMLElement>(null);
@@ -173,7 +196,7 @@ export default function MenuSection() {
 
       <div className="container mx-auto px-4 py-16 relative">
         {/* Search & Filter Bar - Enhanced for Laptop */}
-        <div className="md:sticky block top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
+        <div className="top-20 z-40 bg-background/95 backdrop-blur-xl py-8 border-b border-border/50 mb-16 shadow-sm">
           <div className="flex flex-col gap-8">
             {/* Categories - Wrapping Layout */}
             <div className="flex flex-wrap items-center justify-center gap-2">
@@ -210,10 +233,10 @@ export default function MenuSection() {
         </div>
 
         {/* Creative Menu Grid - 2 Column for Laptop */}
-        <div className="max-w-7xl mx-auto">
+        <div ref={menuGridRef} className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16 px-4">
             <div className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tight">
+              <h2 className="block text-4xl md:text-5xl font-heading font-black text-primary tracking-tight">
                 {activeCategory === "All" ? "Our Menu" : activeCategory}
               </h2>
               <div className="h-1.5 w-20 bg-secondary rounded-full" />

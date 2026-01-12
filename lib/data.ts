@@ -17,6 +17,7 @@ export const MENU_CATEGORIES = [
   "Ashami Chili",
   "Fried Wings",
   "Momo",
+  "Frozen Momo",
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -78,7 +79,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description:
       "Lightly battered shrimp deep fried until crispy outside and juicy inside.",
     category: "Appetizers",
-    image: "/menu/appetizers/shrimp-tampora.jpg",
+    image: "/menu/appetizers/shrimp-tempora.jpeg",
   },
   {
     id: "app-7",
@@ -139,7 +140,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Spicy, tangy Nepali street mix with puffed rice, veggies, lemon, and bold spices.",
     category: "Appetizers",
     isVegetarian: true,
-    image: "/menu/appetizers/chatpate.jpg",
+    image: "/menu/appetizers/chatpate.jpeg",
   },
 
   /* =======================
@@ -161,7 +162,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 11.99,
     description: "Street-style stir-fried noodles with vegetables or chicken.",
     category: "Chaat & Noodles",
-    image: "/menu/chaat&noodles/ashami-chow-mein.jpg",
+    image: "/menu/chaat&noodles/chowmein.jpeg",
   },
 
   /* =======================
@@ -175,7 +176,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Crispy fried chicken cooked with onions, bell peppers and chef special spices.",
     category: "Ashami Chili",
     isSpicy: true,
-    image: "/menu/chili/chicken-chili.jpg",
+    image: "/menu/chili/chicken-chili.jpeg",
   },
   {
     id: "chili-2",
@@ -186,7 +187,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "Ashami Chili",
     isSpicy: true,
     popular: true,
-    image: "/menu/chili/smokey-pork-belly-chili.jpg",
+    image: "/menu/chili/pork-chili.jpeg",
   },
   {
     id: "chili-3",
@@ -251,7 +252,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 11.99,
     description: "Crispy wings tossed in sweet and smoky BBQ sauce.",
     category: "Fried Wings",
-    image: "/menu/wings/bbq-fried-wings.jpg",
+    image: "/menu/wings/bbq-fried-wings.jpeg",
   },
   {
     id: "wings-2",
@@ -351,6 +352,54 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Steamed momo served with hot tomato based soup.",
     category: "Momo",
     image: "/menu/momo/tato-jhol-momo.jpg",
+  },
+  /* =======================
+    FROZEN MO:MO (DUMPLINGS)
+  ======================== */
+  {
+    id: "frozen-1",
+    name: "Frozen Chicken Momo",
+    price: 35,
+    description:
+      "Handcrafted with care, our juicy Nepali-style chicken momos are made from seasoned minced chicken and Ashami’s signature momo spices. Delicately wrapped in thin, soft dough and expertly flash-frozen to preserve authentic flavor, freshness, and quality in every bite.comes with momo sauce",
+    category: "Frozen Momo",
+    image: "/menu/frozen-momo/frozen-chicken-momo.webp",
+  },
+  {
+    id: "frozen-2",
+    name: "Frozen Pork Momo",
+    price: 35,
+    description:
+      "Handcrafted with care, our juicy Nepali-style chicken momos are made from seasoned minced pork and Ashami’s signature momo spices. Delicately wrapped in thin, soft dough and expertly flash-frozen to preserve authentic flavor, freshness, and quality in every bite.comes with momo sauce comes with momo sauce.",
+    category: "Frozen Momo",
+    image: "/menu/frozen-momo/frozen-pork-momo.jpeg",
+  },
+  {
+    id: "frozen-3",
+    name: "Frozen Buff Momo",
+    price: 45,
+    description:
+      "Handcrafted with care, our juicy Nepali-style chicken momos are made from seasoned minced buffalo and Ashami’s signature momo spices. Delicately wrapped in thin, soft dough and expertly flash-frozen to preserve authentic flavor, freshness, and quality in every bite.comes with momo sauce comes with momo sauce .",
+    category: "Frozen Momo",
+    image: "/menu/frozen-momo/frozen-buff-momo.jpeg",
+  },
+  {
+    id: "frozen-4",
+    name: "Frozen Vegetable Momo",
+    price: 35,
+    description:
+      "Handcrafted Nepali-style vegetable momos, filled with a flavorful mix of fresh cabbage, carrots, onions, herbs, and aromatic Ashami’s signature momo spices Carefully wrapped in soft, thin dough and expertly flash-frozen to preserve freshness, texture, and authentic taste.",
+    category: "Frozen Momo",
+    image: "/menu/frozen-momo/frozen-pork-momo.jpeg",
+  },
+  {
+    id: "frozen-5",
+    name: "Frozen Paneer Momo ",
+    price: 35,
+    description:
+      "Handcrafted Nepali-style paneer momos, filled with a flavorful mix of fresh paneer onions, herbs, and aromatic Ashami’s signature momo spices Carefully wrapped in soft, thin dough and expertly flash-frozen to preserve freshness, texture, and authentic taste.",
+    category: "Frozen Momo",
+    image: "/menu/frozen-momo/frozen-buff-momo.jpeg",
   },
 ];
 
