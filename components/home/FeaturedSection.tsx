@@ -93,15 +93,15 @@ export default function FeaturedSection() {
                   </div>
                 </div>
 
-                <div className="px-6">
-                  <div className="flex justify-between items-start mb-2">
+                <div className="p-4">
+                  <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">{item.name}</h3>
                     <span className="text-lg font-bold text-primary">
                       ${item.price}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-muted-foreground max-w-[80%] text-sm mb-4 ">
+                  <div className="py-1 flex justify-between items-center">
+                    <p className="text-muted-foreground max-w-[80%] text-sm">
                       {item.description}
                     </p>
                     {/* Add to cart button commented out */}
