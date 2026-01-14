@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
+import { Toaster } from "sonner";
 // import { CartSidebar } from "@/components/cart/CartSidebar";
 
 const outfit = Outfit({
@@ -74,6 +75,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <ScrollToTopButton />
+        <Toaster richColors position="bottom-right" />
         <Footer />
         {/* <CartSidebar /> */}
       </body>

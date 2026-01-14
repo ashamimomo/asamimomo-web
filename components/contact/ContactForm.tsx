@@ -32,13 +32,6 @@ export default function ContactForm() {
     formData.delete("first_name");
     formData.delete("last_name");
 
-    const message = formData.get("message") as string;
-    const phone = formData.get("phone") as string;
-
-    formData.set("message", `${message}\n\nPhone: ${phone}`);
-
-    formData.delete("phone");
-
     // Send to FormSubmit
     const res = await fetch(
       "https://us-central1-contact-from-470814.cloudfunctions.net/contactForm",
@@ -173,6 +166,7 @@ export default function ContactForm() {
             >
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
+                <input type="hidden" name="_captcha" value="false" />
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
@@ -180,6 +174,7 @@ export default function ContactForm() {
                     </label>
                     <input
                       type="text"
+                      name="first_name"
                       className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                       placeholder="John"
                     />
@@ -190,6 +185,7 @@ export default function ContactForm() {
                     </label>
                     <input
                       type="text"
+                      name="last_name"
                       className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                       placeholder="Doe"
                     />
@@ -202,6 +198,7 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full bg-muted/30 border-2 border-border/50 rounded-full px-6 py-4 text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                     placeholder="john@example.com"
                   />
@@ -212,6 +209,7 @@ export default function ContactForm() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     className="w-full bg-muted/30 border-2 border-border/50 rounded-[2rem] px-6 py-5 min-h-[180px] text-sm font-medium focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-muted-foreground/40"
                     placeholder="How can we help you?"
                   />
