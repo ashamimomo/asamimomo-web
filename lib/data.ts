@@ -298,13 +298,54 @@ export const MENU_ITEMS: MenuItem[] = [
     id: "momo-1",
     name: "Steam Momo",
     price: 9.99,
-    description: "Steamed dumplings filled with chicken, pork, or vegetables.",
+    description:
+      "Steamed dumplings filled with chicken, pork, buff, vegetables and paneer.",
     category: "Momo",
     popular: true,
     image: "/menu/momo/steam-momo.jpg",
   },
+  // {
+  //   id: "momo-2",
+  //   name: "Steam Momo - Chicken",
+  //   price: 9.99,
+  //   description:
+  //     "Steamed dumplings filled with chicken, pork, buff, vegetables and paneer.",
+  //   category: "Momo",
+  //   popular: true,
+  //   image: "/menu/momo/steam-momo.jpg",
+  // },
+  // {
+  //   id: "momo-3",
+  //   name: "Steam Momo - Buff",
+  //   price: 9.99,
+  //   description:
+  //     "Steamed dumplings filled with chicken, pork, buff, vegetables and paneer.",
+  //   category: "Momo",
+  //   popular: true,
+  //   image: "/menu/momo/steam-momo.jpg",
+  // },
+  // {
+  //   id: "momo-4",
+  //   name: "Steam Momo - Pork",
+  //   price: 9.99,
+  //   description:
+  //     "Steamed dumplings filled with chicken, pork, buff, vegetables and paneer.",
+  //   category: "Momo",
+  //   popular: true,
+  //   image: "/menu/momo/steam-momo.jpg",
+  // },
+  // {
+  //   id: "momo-5",
+  //   name: "Steam Momo - Paneer",
+  //   price: 9.99,
+  //   description:
+  //     "Steamed dumplings filled with chicken, pork, buff, vegetables and paneer.",
+  //   category: "Momo",
+  //   popular: true,
+  //   image: "/menu/momo/steam-momo.jpg",
+  // },
   {
-    id: "momo-2",
+    id: "momo-6",
     name: "Deep Fried Momo",
     price: 10.99,
     description: "Crispy fried dumplings served with tomato sauce.",
@@ -312,7 +353,7 @@ export const MENU_ITEMS: MenuItem[] = [
     image: "/menu/momo/deep-fried-momo.jpg",
   },
   {
-    id: "momo-3",
+    id: "momo-7",
     name: "Chili Momo",
     price: 13.99,
     description:
@@ -322,7 +363,7 @@ export const MENU_ITEMS: MenuItem[] = [
     image: "/menu/momo/chili-momo.jpeg",
   },
   {
-    id: "momo-4",
+    id: "momo-8",
     name: "Kothey Momo",
     price: 12.99,
     description: "Steamed momo lightly pan-fried for a crispy bottom.",
@@ -330,7 +371,7 @@ export const MENU_ITEMS: MenuItem[] = [
     image: "/menu/momo/kothey-momo.jpg",
   },
   {
-    id: "momo-5",
+    id: "momo-9",
     name: "Jhol Momo",
     price: 12.99,
     description: "Steamed momo served in tomato based cold soup.",
@@ -338,7 +379,7 @@ export const MENU_ITEMS: MenuItem[] = [
     image: "/menu/momo/jhol-momo.jpg",
   },
   {
-    id: "momo-6",
+    id: "momo-10",
     name: "Sadheko Momo",
     price: 13.99,
     description: "Fried momo marinated with traditional Nepali spices.",
@@ -346,7 +387,7 @@ export const MENU_ITEMS: MenuItem[] = [
     image: "/menu/momo/sadheko-momo.jpg",
   },
   {
-    id: "momo-7",
+    id: "momo-11",
     name: "Tato Jhol Momo",
     price: 12.99,
     description: "Steamed momo served with hot tomato based soup.",
