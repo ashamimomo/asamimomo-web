@@ -172,7 +172,7 @@ export default function ContactForm() {
               className="bg-card border border-border p-8 rounded-2xl shadow-lg bg-muted/30"
             >
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <label className="text-xs font-black uppercase tracking-widest ml-5 text-muted-foreground">
@@ -217,7 +217,10 @@ export default function ContactForm() {
                   />
                 </div>
 
-                <button className="w-full bg-primary text-primary-foreground font-black uppercase tracking-widest py-5 rounded-full hover:bg-secondary hover:text-white transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-primary/20 mt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground font-black uppercase tracking-widest py-5 rounded-full hover:bg-secondary hover:text-white transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-primary/20 mt-4"
+                >
                   Send Message <Send className="w-5 h-5" />
                 </button>
               </form>
