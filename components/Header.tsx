@@ -10,6 +10,7 @@ import {
   MapPin,
   Instagram,
   Facebook,
+  Package,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -62,8 +63,13 @@ export function Header() {
               <MapPin className="w-3 h-3" /> 278 Pearl St, Malden
             </span>
           </div>
+          <div className="flex">
+            <span className="flex items-center gap-2">
+              <Package className="w-3 h-3" /> Coming Soon
+            </span>
+          </div>
           <div className="flex items-center gap-2">
-            <Clock className="w-3 h-3" /> Mon-Sun: 11:00 AM - 10:00 PM
+            <Clock className="w-3 h-3" /> Mon-Sun: 04:00 PM - 11:00 PM
           </div>
         </div>
       </div>
