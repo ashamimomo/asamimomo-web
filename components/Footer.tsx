@@ -63,11 +63,14 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>
-                  278 Pearl St,
-                  <br />
-                  Malden, MA 02148
-                </span>
+                <a
+                  href="https://maps.app.goo.gl/vR5u6HcuCbMbXX1a8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  278 Pearl St Malden
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />

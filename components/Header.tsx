@@ -56,10 +56,10 @@ export function Header() {
         <div className="container mx-auto px-4 flex justify-between items-center text-xs font-bold tracking-widest uppercase">
           <div className="flex gap-6">
             <span className="flex items-center gap-2">
-              <Phone className="w-3 h-3" /> (781) 605-1815
+              <Phone className="w-3 h-3" /> (781) 960-8819
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-3 h-3" /> 236 Bryant St, Malden, MA
+              <MapPin className="w-3 h-3" /> 278 Pearl St, Malden
             </span>
           </div>
           <div className="flex items-center gap-2">

@@ -103,9 +103,7 @@ export default function ContactForm() {
                     <div>
                       <h4 className="font-bold mb-1">Visit Us</h4>
                       <p className="text-muted-foreground">
-                        278 Pearl St,
-                        <br />
-                        Malden, MA 02148
+                        278 Pearl St Malden
                       </p>
                     </div>
                   </div>
