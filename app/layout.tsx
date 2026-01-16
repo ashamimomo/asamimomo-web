@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
+import { OpeningSoonPopup } from "@/components/OpeningSoonPopup";
 import { Toaster } from "sonner";
 // import { CartSidebar } from "@/components/cart/CartSidebar";
 
@@ -77,6 +78,7 @@ export default function RootLayout({
         <ScrollToTopButton />
         <Toaster richColors position="bottom-right" />
         <Footer />
+        <OpeningSoonPopup />
         {/* <CartSidebar /> */}
       </body>
     </html>
