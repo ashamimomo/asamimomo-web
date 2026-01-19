@@ -37,7 +37,7 @@ const HERO_SLIDES = [
     subtitle: "The King of Flavors",
     title: "PORK CHILLI",
     description:
-      "A fragrant symphony of long-grain basmati rice, tender meat, and royal spices.",
+      "Succulent chunks of pork tossed in a fiery blend of green chillies and aromatic spices.",
   },
 ];
 
@@ -53,6 +53,7 @@ export default function HeroSection() {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
       className="relative h-screen min-h-[700px] w-full overflow-hidden"
     >

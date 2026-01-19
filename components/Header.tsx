@@ -36,6 +36,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/menu", label: "Menu" },
@@ -51,7 +58,7 @@ export function Header() {
           "hidden lg:block bg-primary text-primary-foreground py-2 transition-all duration-300",
           isOpaque
             ? "opacity-0 -translate-y-full h-0 p-0"
-            : "opacity-100 translate-y-0"
+            : "opacity-100 translate-y-0",
         )}
       >
         <div className="container mx-auto px-4 flex justify-between items-center text-xs font-bold tracking-widest uppercase">
@@ -79,23 +86,24 @@ export function Header() {
           "fixed left-0 right-0 z-50 transition-all duration-500",
           isOpaque
             ? "top-0 bg-background/95 backdrop-blur-xl border-b border-border py-3 shadow-lg"
-            : "top-0 lg:top-8 bg-transparent py-5"
+            : "top-0 lg:top-8 bg-transparent py-5",
         )}
       >
         <div
           className={cn(
             "container mx-auto px-4 flex items-center transition-all duration-500",
-            isOpaque ? "justify-between" : "md:justify-center justify-between"
+            isOpaque ? "justify-between" : "md:justify-center justify-between",
           )}
         >
           <Link
             href="/"
+            onClick={scrollTop}
             className="relative z-10 hover:scale-105 transition-transform"
           >
             <div
               className={cn(
                 "absolute -inset-2 bg-primary/20 blur-2xl rounded-full -z-10 transition-opacity",
-                isOpaque ? "opacity-0" : "opacity-100"
+                isOpaque ? "opacity-0" : "opacity-100",
               )}
             />
             <div className="flex items-center gap-2">
@@ -106,7 +114,7 @@ export function Header() {
                 height={100}
                 className={cn(
                   "rounded-full border-2 border-white/20 shadow-xl object-cover transition-all duration-500",
-                  isOpaque ? "h-12 w-12 block" : "h-16 w-16 block hidden"
+                  isOpaque ? "h-12 w-12 block" : "h-16 w-16 block hidden",
                 )}
               />
               {isOpaque ? (
@@ -125,9 +133,14 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => {
+                  if (link.href === "/") {
+                    scrollTop();
+                  }
+                }}
                 className={cn(
                   "text-sm font-bold tracking-widest uppercase transition-all hover:text-primary focus:text-primary relative group",
-                  isOpaque ? "text-foreground" : "text-background"
+                  isOpaque ? "text-foreground" : "text-background",
                 )}
               >
                 {link.label}
@@ -143,7 +156,7 @@ export function Header() {
             <div
               className={cn(
                 "flex gap-4 text-sm font-bold tracking-widest uppercase transition-all relative group",
-                isOpaque ? "text-foreground" : "text-background"
+                isOpaque ? "text-foreground" : "text-background",
               )}
             >
               <a
