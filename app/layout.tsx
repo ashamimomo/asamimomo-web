@@ -12,6 +12,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 import { OpeningSoonPopup } from "@/components/OpeningSoonPopup";
+import { LegalPopupContainer } from "@/components/LegalPopupContainer";
 import { Toaster } from "sonner";
 // import { CartSidebar } from "@/components/cart/CartSidebar";
 
@@ -70,7 +71,7 @@ export default function RootLayout({
           roboto.variable,
           syne.variable,
           syncopate.variable,
-          "antialiased bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground flex flex-col min-h-screen"
+          "antialiased bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground flex flex-col min-h-screen",
         )}
       >
         <Header />
@@ -79,6 +80,7 @@ export default function RootLayout({
         <Toaster richColors position="bottom-right" />
         <Footer />
         <OpeningSoonPopup />
+        <LegalPopupContainer />
         {/* <CartSidebar /> */}
       </body>
     </html>

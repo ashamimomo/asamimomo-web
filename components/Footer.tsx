@@ -1,9 +1,14 @@
+"use client";
+
 import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import TiktokIcon from "./icons/TiktokIcon";
+import { useLegalStore } from "@/store/legalStore";
 
 export function Footer() {
+  const { openPrivacy, openTerms } = useLegalStore();
+
   return (
     <footer className="bg-amber-50 backdrop-blur-sm text-muted-foreground pt-16 pb-8 border-t border-border/50 relative overflow-hidden">
       <div className="absolute inset-0 bg-diamond-subtle opacity-5 z-0" />
@@ -103,10 +108,24 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 text-center text-sm">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>
             &copy; {new Date().getFullYear()} Ashami Momo. All rights reserved.
           </p>
+          <div className="flex gap-6">
+            <button
+              onClick={openPrivacy}
+              className="hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={openTerms}
+              className="hover:text-primary transition-colors"
+            >
+              Terms & Conditions
+            </button>
+          </div>
         </div>
       </div>
     </footer>
