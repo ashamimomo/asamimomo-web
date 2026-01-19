@@ -12,7 +12,7 @@ export default function ContactForm() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
@@ -41,7 +41,7 @@ export default function ContactForm() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (res.ok) {
@@ -125,7 +125,7 @@ export default function ContactForm() {
                     <div>
                       <h4 className="font-bold mb-1">Opening Hours</h4>
                       <p className="text-muted-foreground">
-                        Mon - Sun: 11:00 AM - 10:00 PM
+                        Mon - Sun: 04:00 PM - 11:00 PM
                       </p>
                     </div>
                   </div>
