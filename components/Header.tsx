@@ -135,7 +135,7 @@ export function Header() {
               </Link>
             ))}
 
-            <Link href="/contact">
+            <Link href="https://order.toasttab.com/online/ashamimomo">
               <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-secondary hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 cursor-pointer">
                 Order Online
               </button>
@@ -228,7 +228,10 @@ export function Header() {
               </nav>
 
               <div className="mt-auto space-y-6">
-                <Link href="/menu" onClick={() => setIsOpen(false)}>
+                <Link
+                  href="https://order.toasttab.com/online/ashamimomo"
+                  onClick={() => setIsOpen(false)}
+                >
                   <button className="w-full bg-primary text-primary-foreground py-5 rounded-2xl font-bold text-lg shadow-xl shadow-primary/20">
                     Order Now
                   </button>

@@ -154,7 +154,7 @@ function MenuItemCard({
             </span>
             <div className="w-8 h-[2px] bg-primary/20 group-hover:w-16 group-hover:bg-primary transition-all duration-500" />
           </div>
-          <Link href="/contact">
+          <Link href="https://order.toasttab.com/online/ashamimomo">
             <div className="w-8 h-8 hover:w-8.5 hover:h-8.5 text-primary/40 hover:text-red-700 transition-all duration-100">
               <OrderIcon />
             </div>

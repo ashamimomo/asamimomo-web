@@ -111,7 +111,7 @@ export default function FeaturedSection() {
                   >
                     Add to Order
                   </button> */}
-                    <Link href="/contact">
+                    <Link href="https://order.toasttab.com/online/ashamimomo">
                       <div className="w-8 h-8 hover:w-9 hover:h-9 text-red-700 transition-all duration-100">
                         <OrderIcon />
                       </div>

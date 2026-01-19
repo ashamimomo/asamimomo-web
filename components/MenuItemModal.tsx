@@ -135,7 +135,10 @@ export function MenuItemModal({
                       </span>
                     </div>
 
-                    <Link href={"/contact"} className="mb-8">
+                    <Link
+                      href={"https://order.toasttab.com/online/ashamimomo"}
+                      className="mb-8"
+                    >
                       <button className="w-full bg-primary text-primary-foreground py-4 rounded-lg font-bold uppercase tracking-wide hover:bg-primary/90 transition-all">
                         Order Now
                       </button>
