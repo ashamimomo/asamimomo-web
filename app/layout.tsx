@@ -12,7 +12,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 import { OpeningSoonPopup } from "@/components/OpeningSoonPopup";
-import { LegalPopupContainer } from "@/components/LegalPopupContainer";
+
 import { Toaster } from "sonner";
 // import { CartSidebar } from "@/components/cart/CartSidebar";
 
@@ -80,7 +80,7 @@ export default function RootLayout({
         <Toaster richColors position="bottom-right" />
         <Footer />
         <OpeningSoonPopup />
-        <LegalPopupContainer />
+
         {/* <CartSidebar /> */}
       </body>
     </html>
