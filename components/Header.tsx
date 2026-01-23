@@ -72,7 +72,7 @@ export function Header() {
           </div>
           <div className="flex">
             <span className="flex items-center gap-2">
-              <Package className="w-3 h-3" /> Opening Soon
+              {/* <Package className="w-3 h-3" /> Opening Soon */}
             </span>
           </div>
           <div className="flex items-center gap-2">
