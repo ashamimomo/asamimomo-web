@@ -18,6 +18,7 @@ export const MENU_CATEGORIES = [
   "Fried Wings",
   "Momo",
   "Frozen Momo",
+  "Biryani",
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -38,7 +39,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "app-2",
     name: "Chicken Choila",
-    price: 12.99,
+    price: 11.99,
     description:
       "Boneless chicken marinated with herbs, grilled in a tandoor oven, and tossed with Ashami special spices (served cold).",
     category: "Appetizers",
@@ -56,7 +57,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "app-4",
     name: "Pork Choila",
-    price: 14.99,
+    price: 13.99,
     description:
       "Juicy grilled pork marinated with herbs and Ashami spices for a smoky flavor (served cold).",
     category: "Appetizers",
@@ -65,7 +66,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "app-5",
     name: "Veg Samosa",
-    price: 4.99,
+    price: 5.99,
     description:
       "Golden fried pastry filled with spiced potatoes, onions, and peas. Served with tamarind and cilantro chutney.",
     category: "Appetizers",
@@ -75,7 +76,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "app-6",
     name: "Shrimp Tempura",
-    price: 6.99,
+    price: 7.99,
     description:
       "Lightly battered shrimp deep fried until crispy outside and juicy inside.",
     category: "Appetizers",
@@ -84,7 +85,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "app-7",
     name: "Mozzarella Sticks",
-    price: 6.99,
+    price: 7.99,
     description:
       "Breaded mozzarella fried until crispy, served with ranch dressing.",
     category: "Appetizers",
@@ -160,18 +161,25 @@ export const MENU_ITEMS: MenuItem[] = [
     id: "cn-2",
     name: "Ashami Chow Mein",
     price: 11.99,
-    description: "Street-style stir-fried noodles with vegetables or chicken.",
+    description: "Street-style stir-fried noodles with vegetables.",
     category: "Chaat & Noodles",
     image: "/menu/chaat&noodles/chowmein.jpeg",
   },
-
+  {
+    id: "cn-3",
+    name: "Chicken Chow Mein",
+    price: 12.99,
+    description: "Street-style stir-fried noodles with vegetables.",
+    category: "Chaat & Noodles",
+    image: "/menu/chaat&noodles/chicken-chowmein.jpg",
+  },
   /* =======================
      ASHAMI CHILI
   ======================== */
   {
     id: "chili-1",
     name: "Chicken Chili",
-    price: 13.99,
+    price: 12.99,
     description:
       "Crispy fried chicken cooked with onions, bell peppers and chef special spices.",
     category: "Ashami Chili",
@@ -192,7 +200,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "chili-3",
     name: "Shrimp Chili",
-    price: 16.99,
+    price: 15.99,
     description:
       "Shrimp tossed with onions, bell peppers and chef special spices.",
     category: "Ashami Chili",
@@ -213,7 +221,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "chili-5",
     name: "Paneer Chili",
-    price: 14.99,
+    price: 12.99,
     description:
       "Paneer cubes cooked with onions, bell peppers and chef special spices.",
     category: "Ashami Chili",
@@ -274,7 +282,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "wings-4",
     name: "Chili Wings",
-    price: 14.99,
+    price: 13.99,
     description:
       "Grilled wings tossed with chili sauce, onions, peppers, and Sichuan pepper.",
     category: "Fried Wings",
@@ -284,7 +292,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "wings-5",
     name: "Chicken Lollipop",
-    price: 14.99,
+    price: 13.99,
     description: "Frenched chicken wings cooked with chef special spices.",
     category: "Fried Wings",
     popular: true,
@@ -441,6 +449,66 @@ export const MENU_ITEMS: MenuItem[] = [
       "Handcrafted Nepali-style paneer momos, filled with a flavorful mix of fresh paneer onions, herbs, and aromatic Ashami’s signature momo spices Carefully wrapped in soft, thin dough and expertly flash-frozen to preserve freshness, texture, and authentic taste.",
     category: "Frozen Momo",
     image: "/menu/frozen-momo/frozen-pork-momo.jpeg",
+  },
+  /* =======================
+     BIRYANI
+  ======================== */
+  {
+    id: "biryani-1",
+    name: "Chicken Biryani",
+    price: 13.99,
+    description:
+      "Basmati rice slow-cooked with chicken and Ashami special biryani spices. Served with a side of raita.",
+    category: "Biryani",
+    image: "/menu/biryani/chicken-biryani.jpg",
+  },
+  {
+    id: "biryani-2",
+    name: "Vegetable Biryani",
+    price: 13.99,
+    description:
+      "Basmati rice cooked with mixed vegetables and Ashami special biryani spices. Served with side of raita.",
+    category: "Biryani",
+    isVegetarian: true,
+    image: "/menu/biryani/vegetable-biryani.jpg",
+  },
+  {
+    id: "biryani-3",
+    name: "Shrimp Biryani",
+    price: 14.99,
+    description:
+      "Basmati rice cooked with shrimp and Ashami special biryani spices, served with raita.",
+    category: "Biryani",
+    image: "/menu/biryani/shrimp-biryani.jpg",
+  },
+  {
+    id: "biryani-4",
+    name: "Paneer Biryani",
+    price: 14.99,
+    description:
+      "Basmati rice cooked with paneer and Ashami special biryani spices, served with raita.",
+    category: "Biryani",
+    isVegetarian: true,
+    image: "/menu/biryani/paneer-biryani.jpg",
+  },
+  {
+    id: "biryani-5",
+    name: "Goat Biryani",
+    price: 16.99,
+    description:
+      "Basmati rice cooked with bone-in goat meat and Ashami special biryani spices. Served with raita.",
+    category: "Biryani",
+    image: "/menu/biryani/goat-biryani.jpg",
+  },
+  {
+    id: "biryani-6",
+    name: "House Special Biryani",
+    price: 16.99,
+    description:
+      "Basmati rice cooked with Chicken, paneer and shrimp and Ashami special biryani spices. Served with raita.",
+    category: "Biryani",
+    popular: true,
+    image: "/menu/biryani/house-special-biryani.jpg",
   },
 ];
 
