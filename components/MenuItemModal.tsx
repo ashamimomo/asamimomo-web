@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Facebook, Twitter, Linkedin } from "lucide-react";
+import { X } from "lucide-react";
 import { MenuItem } from "@/lib/data";
 import { MENU_ITEMS } from "@/lib/data";
 import Link from "next/link";

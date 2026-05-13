@@ -6,10 +6,8 @@ import {
   MoveLeft,
   Minus,
   Plus,
-  Facebook,
-  Twitter,
-  Linkedin,
 } from "lucide-react";
+import { SiFacebook, SiX} from "@icons-pack/react-simple-icons";
 import { MenuItem } from "@/lib/data";
 // import { useCartStore } from "@/store/cartStore";
 import { motion } from "framer-motion";
@@ -127,13 +125,10 @@ export default function ProductClient({
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                 <span>Share:</span>
                 <button className="hover:text-foreground">
-                  <Facebook className="w-4 h-4" />
+                  <SiFacebook className="w-4 h-4" />
                 </button>
                 <button className="hover:text-foreground">
-                  <Twitter className="w-4 h-4" />
-                </button>
-                <button className="hover:text-foreground">
-                  <Linkedin className="w-4 h-4" />
+                  <SiX className="w-4 h-4" />
                 </button>
               </div>
             </div>

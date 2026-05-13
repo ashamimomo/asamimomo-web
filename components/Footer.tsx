@@ -1,6 +1,7 @@
 "use client";
 
-import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
+import { SiInstagram, SiFacebook } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import Image from "next/image";
 import TiktokIcon from "./icons/TiktokIcon";
@@ -35,7 +36,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                <Facebook className="w-6 h-6" />
+                <SiFacebook className="w-6 h-6" />
               </a>
               <a
                 href="https://www.instagram.com/ashamimomo/"
@@ -43,7 +44,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                <Instagram className="w-6 h-6" />
+                <SiInstagram className="w-6 h-6" />
               </a>
               <a
                 href="https://www.tiktok.com/@ashamimomo"

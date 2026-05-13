@@ -8,10 +8,9 @@ import {
   Phone,
   Clock,
   MapPin,
-  Instagram,
-  Facebook,
   Package,
 } from "lucide-react";
+import { SiInstagram, SiFacebook } from "@icons-pack/react-simple-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -165,7 +164,7 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                <Facebook className="w-6 h-6" />
+                <SiFacebook className="w-6 h-6" />
               </a>
               <a
                 href="https://www.instagram.com/ashamimomo/"
@@ -173,7 +172,7 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                <Instagram className="w-6 h-6" />
+                <SiInstagram className="w-6 h-6" />
               </a>
               <a
                 href="https://www.tiktok.com/@ashamimomo"
